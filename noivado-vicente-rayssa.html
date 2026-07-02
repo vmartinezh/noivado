@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<title>Vicente &amp; Rayssa — Nosso Noivado</title>
+<meta name="description" content="Vicente e Rayssa se noivam. Dois países, um único sonho. 05 de setembro de 2026, Belém - Pará." />
+<meta name="theme-color" content="#472311" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Vicente & Rayssa — Nosso Noivado" />
+<meta property="og:description" content="Dois países. Duas culturas. Um único sonho. 05 de setembro de 2026, Belém - Pará." />
+<meta property="og:locale" content="pt_BR" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%26%3C/text%3E%3C/svg%3E" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet" />
+<style>
+/* ============================================================
+   VICENTE & RAYSSA — NOSSO NOIVADO
+   ============================================================ */
+:root{
+  --bg:#F4EADE;
+  --bg-alt:#ECDFC8;
+  --card:#FBF4E9;
+  --ink:#472311;
+  --ink-soft:#6E4A34;
+  --ink-faint:#8B6C55;
+  --line:rgba(71,35,17,0.16);
+  --line-strong:rgba(71,35,17,0.3);
+  --accent:#8C5A2E;
+
+  --font-title:'Cormorant Garamond',serif;
+  --font-body:'DM Sans',sans-serif;
+
+  --pad: clamp(3rem,6vw,5rem);
+  --w: 1100px;
+  --ease: cubic-bezier(.22,1,.36,1);
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--ink-soft);
+  font-family:var(--font-body);
+  font-size:16px;
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+body.no-scroll{overflow:hidden;height:100vh}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+h1,h2,h3{font-family:var(--font-title);font-weight:500;margin:0;color:var(--ink)}
+p{margin:0}
+ul,ol{margin:0;padding:0;list-style:none}
+button{font-family:inherit;border:none;background:none;cursor:pointer;color:inherit}
+:focus-visible{outline:1px solid var(--accent);outline-offset:3px}
+@media (prefers-reduced-motion: reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}
+}
+
+/* ---------- utilidades ---------- */
+.eyebrow{
+  display:block;font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--accent);margin-bottom:.7rem;font-weight:500;
+}
+.section{position:relative;padding:var(--pad) 1.5rem;max-width:var(--w);margin:0 auto}
+.section--tight{padding-top:calc(var(--pad) * .6);padding-bottom:calc(var(--pad) * .6)}
+.section__head{max-width:560px;margin:0 auto 2.6rem}
+.section__head--center{text-align:center}
+.section__title{font-size:clamp(1.9rem,3.6vw,2.6rem);letter-spacing:.01em}
+.section__title--light{color:var(--bg)}
+.section__lede{margin-top:.7rem;font-size:1rem;color:var(--ink-faint)}
+
+.rule{border:0;border-top:1px solid var(--line);margin:0}
+.link{
+  display:inline-flex;align-items:center;gap:.5rem;
+  font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink);
+  border-bottom:1px solid var(--line-strong);padding-bottom:3px;
+  transition:border-color .3s var(--ease),color .3s var(--ease),gap .3s var(--ease);
+}
+.link:hover{border-color:var(--ink);gap:.75rem}
+.link::after{content:"→";font-family:var(--font-body)}
+.link--onDark{color:var(--bg);border-color:rgba(244,234,222,.4)}
+.link--onDark:hover{border-color:var(--bg)}
+
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
+.reveal.is-visible{opacity:1;transform:translateY(0)}
+
+.ph{
+  background:var(--bg-alt);
+  display:flex;align-items:center;justify-content:center;
+  color:var(--ink-faint);font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;
+  text-align:center;
+}
+
+/* ---------- cover ---------- */
+.cover{
+  position:fixed;inset:0;z-index:200;
+  display:flex;align-items:center;justify-content:center;
+  background:var(--ink);color:var(--bg);
+  transition:opacity .8s var(--ease),visibility .8s var(--ease);
+}
+.cover.is-hidden{opacity:0;visibility:hidden;pointer-events:none}
+.cover__content{position:relative;text-align:center;padding:2rem;animation:coverIn 1.2s var(--ease) both}
+@keyframes coverIn{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+.cover__names{
+  font-family:var(--font-title);font-size:clamp(2.4rem,7.5vw,4rem);
+  display:flex;align-items:center;justify-content:center;gap:.45em;margin:0 0 .5rem;
+}
+.cover__amp{font-size:.6em;color:var(--accent);opacity:.9}
+.cover__date{font-size:.85rem;letter-spacing:.14em;text-transform:uppercase;margin-bottom:.15rem}
+.cover__place{font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(244,234,222,.6);margin-bottom:1.8rem}
+.cover__welcome{font-family:var(--font-title);font-style:italic;font-size:1.05rem;margin-bottom:1.8rem;color:rgba(244,234,222,.85)}
+.cover__enter{
+  font-size:.75rem;letter-spacing:.2em;text-transform:uppercase;
+  padding:.85rem 2.1rem;border:1px solid rgba(244,234,222,.5);
+  transition:background .3s var(--ease),border-color .3s var(--ease);
+}
+.cover__enter:hover{background:rgba(244,234,222,.08);border-color:var(--bg)}
+
+/* ---------- header ---------- */
+.header{position:fixed;top:0;left:0;right:0;z-index:100;padding:1.3rem 0;transition:background .4s var(--ease),padding .4s var(--ease),border-color .4s var(--ease);border-bottom:1px solid transparent}
+.header.is-scrolled{background:rgba(244,234,222,.92);backdrop-filter:blur(10px);padding:.85rem 0;border-color:var(--line)}
+.header__inner{max-width:var(--w);margin:0 auto;padding:0 1.5rem;display:flex;align-items:center;justify-content:space-between}
+.header__logo{font-family:var(--font-title);font-size:1.25rem;color:var(--bg);transition:color .4s var(--ease)}
+.header.is-scrolled .header__logo{color:var(--ink)}
+.header__logo span{color:var(--accent)}
+.header__nav{display:flex;gap:2rem}
+.header__nav a{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--bg);transition:color .4s var(--ease),opacity .3s var(--ease);opacity:.85}
+.header__nav a:hover{opacity:1}
+.header.is-scrolled .header__nav a{color:var(--ink)}
+.header__toggle{display:none;flex-direction:column;gap:5px;padding:6px}
+.header__toggle span{width:22px;height:1px;background:var(--bg);transition:background .3s var(--ease),transform .3s var(--ease),opacity .3s var(--ease)}
+.header.is-scrolled .header__toggle span{background:var(--ink)}
+
+/* ---------- hero ---------- */
+.hero{position:relative;padding:clamp(6.5rem,12vw,8.5rem) 1.5rem 3rem;max-width:var(--w);margin:0 auto;display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:clamp(2rem,5vw,4rem)}
+.hero__photo{aspect-ratio:4/5;order:2}
+.hero__text{order:1}
+.hero__title{font-size:clamp(2.4rem,5.6vw,3.6rem);margin:.2rem 0 1.1rem;line-height:1.08}
+.hero__quote{font-family:var(--font-title);font-style:italic;font-size:clamp(1.05rem,1.7vw,1.25rem);color:var(--ink-soft);line-height:1.55;margin-bottom:2rem}
+
+/* ---------- história ---------- */
+.timeline{max-width:720px;margin:0 auto}
+.timeline__item{display:grid;grid-template-columns:52px 1fr;gap:1.4rem;padding:1.5rem 0;border-top:1px solid var(--line)}
+.timeline__item:first-child{border-top:none}
+.timeline__num{font-family:var(--font-title);font-style:italic;font-size:1.3rem;color:var(--accent);padding-top:.1rem}
+.timeline__card h3{font-size:1.3rem;margin-bottom:.35rem}
+.timeline__tag{display:block;font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:.35rem}
+.timeline__card p{font-size:.93rem;color:var(--ink-faint)}
+
+/* ---------- countdown ---------- */
+.countdown{background:var(--ink);color:var(--bg);text-align:center}
+.countdown .eyebrow{color:rgba(244,234,222,.55)}
+.countdown__grid{display:flex;flex-wrap:wrap;justify-content:center;gap:clamp(1.2rem,4vw,2.6rem);margin-top:1.8rem}
+.countdown__unit{min-width:80px}
+.countdown__number{display:block;font-family:var(--font-title);font-size:clamp(2.2rem,5vw,3.2rem);font-variant-numeric:tabular-nums}
+.countdown__label{display:block;margin-top:.3rem;font-size:.65rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(244,234,222,.55)}
+
+/* ---------- informações ---------- */
+.info__intro{max-width:560px;margin:0 auto 2.4rem;text-align:center;font-family:var(--font-title);font-style:italic;font-size:1.1rem;color:var(--ink-soft)}
+.info__grid{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line);border-left:1px solid var(--line)}
+.info__card{border-right:1px solid var(--line);border-bottom:1px solid var(--line);padding:2rem 1.6rem;text-align:center}
+.info__card h3{font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);margin-bottom:.6rem;font-family:var(--font-body);font-weight:500}
+.info__card p{font-size:1.15rem;color:var(--ink)}
+.info__mapsBtn{margin-top:1rem;display:inline-flex}
+
+/* ---------- dress code ---------- */
+.dresscode{text-align:center}
+.dresscode__palette{display:flex;justify-content:center;gap:.7rem;margin-bottom:2.4rem}
+.swatch{width:34px;height:34px;border:1px solid var(--line-strong)}
+.swatch--1{background:var(--ink)}
+.swatch--2{background:var(--accent)}
+.swatch--3{background:#C8AF8E}
+.swatch--4{background:var(--bg)}
+.swatch--5{background:var(--card)}
+.dresscode__cards{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);max-width:720px;margin:0 auto}
+.dresscode__card{background:var(--bg);padding:1.9rem;text-align:left}
+.dresscode__card h3{font-size:1.15rem;margin-bottom:.5rem}
+.dresscode__card p{font-size:.9rem;color:var(--ink-faint)}
+.dresscode__note{margin-top:1.8rem;font-family:var(--font-title);font-style:italic;color:var(--ink-soft);font-size:.98rem}
+
+/* ---------- galeria ---------- */
+.gallery__grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2px}
+.gallery__item{position:relative;aspect-ratio:3/4;overflow:hidden;cursor:pointer}
+.gallery__item .ph{position:absolute;inset:0;transition:transform .6s var(--ease)}
+.gallery__item:hover .ph{transform:scale(1.05)}
+
+/* ---------- presentes ---------- */
+.gifts__grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line)}
+.gifts__card{background:var(--card);padding:2.2rem;text-align:center}
+.gifts__card h3{font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);margin-bottom:1.1rem;font-family:var(--font-body);font-weight:500}
+.gifts__qr{width:120px;height:120px;margin:0 auto 1rem;border:1px solid var(--line-strong);display:flex;align-items:center;justify-content:center;font-size:.68rem;color:var(--ink-faint);letter-spacing:.08em;text-transform:uppercase}
+.gifts__pixkey{font-size:.88rem;color:var(--ink-faint)}
+.gifts__card--dream{text-align:left}
+.gifts__card--dream h3{text-align:center}
+.gifts__card--dream>p{margin-bottom:.9rem;color:var(--ink-faint);font-size:.9rem;text-align:center}
+.gifts__list li{padding:.55rem 0;border-top:1px solid var(--line);font-size:.95rem;color:var(--ink)}
+.gifts__list li:first-child{border-top:none}
+
+/* ---------- faq ---------- */
+.faq__list{max-width:680px;margin:0 auto}
+.faq__item{border-top:1px solid var(--line)}
+.faq__item:last-child{border-bottom:1px solid var(--line)}
+.faq__question{width:100%;display:flex;align-items:center;justify-content:space-between;padding:1.25rem .1rem;text-align:left;font-size:.98rem;color:var(--ink)}
+.faq__icon{font-size:1.1rem;color:var(--accent);transition:transform .35s var(--ease);flex-shrink:0;margin-left:1rem;font-weight:300}
+.faq__item.is-open .faq__icon{transform:rotate(45deg)}
+.faq__answer{max-height:0;overflow:hidden;transition:max-height .4s var(--ease)}
+.faq__answer p{padding:0 .1rem 1.25rem;color:var(--ink-faint);font-size:.9rem}
+
+/* ---------- instagram ---------- */
+.instagram{text-align:center}
+.instagram__text{max-width:480px;margin:.6rem auto 0;color:var(--ink-faint);font-size:.95rem}
+
+/* ---------- footer ---------- */
+.footer{background:var(--ink);color:var(--bg);text-align:center;padding:3.6rem 1.5rem}
+.footer__quote{font-family:var(--font-title);font-style:italic;font-size:clamp(1.1rem,2.2vw,1.4rem);line-height:1.6;margin-bottom:1.6rem;max-width:520px;margin-left:auto;margin-right:auto}
+.footer__names{font-family:var(--font-title);font-size:clamp(1.6rem,3.4vw,2.1rem);display:flex;align-items:center;justify-content:center;gap:.45em;margin-bottom:.5rem}
+.footer__meta{font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(244,234,222,.55)}
+
+/* ---------- lightbox ---------- */
+.lightbox{position:fixed;inset:0;z-index:300;background:rgba(71,35,17,.94);display:flex;align-items:center;justify-content:center;padding:2rem;opacity:0;visibility:hidden;transition:opacity .35s var(--ease),visibility .35s var(--ease)}
+.lightbox.is-open{opacity:1;visibility:visible}
+.lightbox__stage{max-width:520px;width:100%}
+.lightbox__stage .ph{aspect-ratio:4/5;background:rgba(244,234,222,.12);color:var(--bg)}
+.lightbox__close{position:absolute;top:1.5rem;right:1.7rem;font-size:.75rem;letter-spacing:.14em;text-transform:uppercase;color:var(--bg);border-bottom:1px solid rgba(244,234,222,.5);padding-bottom:2px}
+
+/* ---------- responsivo ---------- */
+@media (max-width:900px){
+  .hero{grid-template-columns:1fr}
+  .hero__photo{order:1;max-width:380px;margin:0 auto}
+  .hero__text{order:2;text-align:center}
+  .info__grid{grid-template-columns:1fr}
+  .dresscode__cards{grid-template-columns:1fr}
+  .gifts__grid{grid-template-columns:1fr}
+}
+@media (max-width:720px){
+  .header__nav{position:fixed;inset:0 0 0 auto;width:min(78vw,300px);height:100vh;background:var(--bg);flex-direction:column;justify-content:center;align-items:flex-start;gap:1.6rem;padding:2rem 2.4rem;transform:translateX(100%);transition:transform .4s var(--ease);border-left:1px solid var(--line)}
+  .header__nav.is-open{transform:translateX(0)}
+  .header__nav a{color:var(--ink);font-size:.9rem;opacity:1}
+  .header__toggle{display:flex}
+  .header__toggle.is-open span:nth-child(1){transform:translateY(6px) rotate(45deg)}
+  .header__toggle.is-open span:nth-child(2){opacity:0}
+  .header__toggle.is-open span:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
+  .gallery__grid{grid-template-columns:repeat(2,1fr)}
+}
+@media (max-width:480px){
+  .section{padding-left:1.1rem;padding-right:1.1rem}
+  .cover__names{font-size:2.3rem}
+  .countdown__grid{gap:.9rem 1.4rem}
+  .countdown__unit{min-width:66px}
+}
+</style>
+</head>
+<body>
+
+<!-- COVER -->
+<section id="cover" class="cover" aria-label="Tela de boas-vindas">
+  <div class="cover__content">
+    <p class="cover__names"><span>Vicente</span><span class="cover__amp">&amp;</span><span>Rayssa</span></p>
+    <p class="cover__date">05 Setembro 2026</p>
+    <p class="cover__place">Belém — Pará</p>
+    <p class="cover__welcome">Bem-vindos ao nosso noivado</p>
+    <button type="button" id="enterBtn" class="cover__enter">Entrar</button>
+  </div>
+</section>
+
+<!-- HEADER -->
+<header id="siteHeader" class="header">
+  <div class="header__inner">
+    <a href="#cover" class="header__logo">Vicente <span>&amp;</span> Rayssa</a>
+    <button type="button" id="menuToggle" class="header__toggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="primaryNav">
+      <span></span><span></span><span></span>
+    </button>
+    <nav id="primaryNav" class="header__nav" aria-label="Navegação principal">
+      <a href="#historia">História</a>
+      <a href="#informacoes">Informações</a>
+      <a href="#dresscode">Dress Code</a>
+      <a href="#presentes">Presentes</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- HERO -->
+  <section class="hero" id="hero">
+    <div class="hero__photo ph reveal">Fotografia do casal</div>
+    <div class="hero__text">
+      <p class="eyebrow reveal">Nosso Noivado</p>
+      <h1 class="hero__title reveal">Vicente &amp; Rayssa</h1>
+      <p class="hero__quote reveal">Dois países. Duas culturas.<br />Um único sonho.</p>
+      <a href="#informacoes" class="link reveal">Conheça os detalhes</a>
+    </div>
+  </section>
+
+  <!-- HISTÓRIA -->
+  <section class="section historia" id="historia">
+    <div class="section__head section__head--center">
+      <p class="eyebrow reveal">Nossa jornada</p>
+      <h2 class="section__title reveal">Nossa História</h2>
+    </div>
+
+    <ol class="timeline">
+      <li class="timeline__item reveal">
+        <span class="timeline__num">I</span>
+        <div class="timeline__card">
+          <span class="timeline__tag">O começo</span>
+          <h3>Nos conhecemos</h3>
+          <p>Um encontro simples, quase por acaso, que carregava dentro de si o início de tudo.</p>
+        </div>
+      </li>
+      <li class="timeline__item reveal">
+        <span class="timeline__num">II</span>
+        <div class="timeline__card">
+          <span class="timeline__tag">O sentimento</span>
+          <h3>Nos apaixonamos</h3>
+          <p>Entre mensagens e a distância que insistia em separar dois países, o amor encontrou seu caminho.</p>
+        </div>
+      </li>
+      <li class="timeline__item reveal">
+        <span class="timeline__num">III</span>
+        <div class="timeline__card">
+          <span class="timeline__tag">Primeira travessia</span>
+          <h3>Primeira viagem ao Chile</h3>
+          <p>Rayssa cruzou fronteiras pela primeira vez para conhecer o país de Vicente — e sentiu que aquele também podia ser o seu lugar.</p>
+        </div>
+      </li>
+      <li class="timeline__item reveal">
+        <span class="timeline__num">IV</span>
+        <div class="timeline__card">
+          <span class="timeline__tag">Segunda travessia</span>
+          <h3>Vicente viaja ao Brasil</h3>
+          <p>Foi a vez de Vicente atravessar o oceano rumo a Belém, para conhecer as raízes de Rayssa e sua família.</p>
+        </div>
+      </li>
+      <li class="timeline__item reveal">
+        <span class="timeline__num">V</span>
+        <div class="timeline__card">
+          <span class="timeline__tag">Hoje</span>
+          <h3>Nosso Noivado</h3>
+          <p>O pedido, o sim — e agora a certeza de que essa história merece ser celebrada ao lado de quem amamos.</p>
+        </div>
+      </li>
+      <li class="timeline__item reveal">
+        <span class="timeline__num">VI</span>
+        <div class="timeline__card">
+          <span class="timeline__tag">O próximo passo</span>
+          <h3>Nosso Casamento</h3>
+          <p>Em breve, o dia em que diremos sim para sempre, unindo de vez o Chile e o Brasil em uma só família.</p>
+        </div>
+      </li>
+      <li class="timeline__item reveal">
+        <span class="timeline__num">VII</span>
+        <div class="timeline__card">
+          <span class="timeline__tag">O futuro</span>
+          <h3>Nossa vida juntos</h3>
+          <p>Uma nova casa, um novo país para chamar de lar — e a certeza de que, juntos, qualquer lugar pode ser o certo.</p>
+        </div>
+      </li>
+    </ol>
+  </section>
+
+  <!-- CONTAGEM -->
+  <section class="section countdown" id="contagem">
+    <p class="eyebrow">Faltam</p>
+    <h2 class="section__title section__title--light">Para o nosso grande dia</h2>
+    <div class="countdown__grid" id="countdown" role="timer" aria-live="off">
+      <div class="countdown__unit"><span class="countdown__number" id="cd-days">00</span><span class="countdown__label">dias</span></div>
+      <div class="countdown__unit"><span class="countdown__number" id="cd-hours">00</span><span class="countdown__label">horas</span></div>
+      <div class="countdown__unit"><span class="countdown__number" id="cd-minutes">00</span><span class="countdown__label">min</span></div>
+      <div class="countdown__unit"><span class="countdown__number" id="cd-seconds">00</span><span class="countdown__label">seg</span></div>
+    </div>
+  </section>
+
+  <!-- INFORMAÇÕES -->
+  <section class="section info" id="informacoes">
+    <div class="section__head section__head--center">
+      <p class="eyebrow reveal">Detalhes</p>
+      <h2 class="section__title reveal">Informações</h2>
+    </div>
+    <p class="info__intro reveal">Queremos um encontro leve, cheio de amor, boas conversas e pessoas especiais.</p>
+    <div class="info__grid reveal">
+      <div class="info__card">
+        <h3>Data</h3>
+        <p>05 Set 2026</p>
+      </div>
+      <div class="info__card">
+        <h3>Horário</h3>
+        <p>17h</p>
+      </div>
+      <div class="info__card">
+        <h3>Endereço</h3>
+        <p id="venueName">Alameda Pará, 60<br />Parque Guajará</p>
+        <a id="mapsLink" class="link info__mapsBtn" href="https://maps.app.goo.gl/tGKZR7Cri2KhtvGEA" target="_blank" rel="noopener">Google Maps</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- DRESS CODE -->
+  <section class="section dresscode" id="dresscode">
+    <div class="section__head section__head--center">
+      <p class="eyebrow reveal">Traje</p>
+      <h2 class="section__title reveal">Dress Code</h2>
+    </div>
+    <div class="dresscode__palette reveal">
+      <span class="swatch swatch--1"></span><span class="swatch swatch--2"></span><span class="swatch swatch--3"></span><span class="swatch swatch--4"></span><span class="swatch swatch--5"></span>
+    </div>
+    <div class="dresscode__cards reveal">
+      <div class="dresscode__card">
+        <h3>Esporte Fino</h3>
+        <p>Elegância descontraída — tecidos leves e cores naturais para uma tarde ao ar livre.</p>
+      </div>
+      <div class="dresscode__card">
+        <h3>Casual Elegante</h3>
+        <p>Conforto com bom gosto — peças simples que acompanham o clima intimista da celebração.</p>
+      </div>
+    </div>
+    <p class="dresscode__note reveal">Inspiramos estas cores para harmonizar com a decoração. Não é obrigatório.</p>
+  </section>
+
+  <!-- GALERIA -->
+  <section class="section gallery" id="galeria">
+    <div class="section__head section__head--center">
+      <p class="eyebrow reveal">Momentos</p>
+      <h2 class="section__title reveal">Galeria</h2>
+    </div>
+    <div class="gallery__grid" id="galleryGrid">
+      <button type="button" class="gallery__item reveal" data-caption="Nosso primeiro encontro"><span class="ph">Foto 1</span></button>
+      <button type="button" class="gallery__item reveal" data-caption="Viagem ao Chile"><span class="ph">Foto 2</span></button>
+      <button type="button" class="gallery__item reveal" data-caption="Viagem ao Brasil"><span class="ph">Foto 3</span></button>
+      <button type="button" class="gallery__item reveal" data-caption="O pedido"><span class="ph">Foto 4</span></button>
+    </div>
+  </section>
+
+  <!-- PRESENTES -->
+  <section class="section gifts" id="presentes">
+    <div class="section__head section__head--center">
+      <p class="eyebrow reveal">Carinho</p>
+      <h2 class="section__title reveal">Sua presença é o maior presente.</h2>
+      <p class="section__lede reveal">Mas, caso deseje nos presentear, deixamos algumas opções.</p>
+    </div>
+    <div class="gifts__grid reveal">
+      <div class="gifts__card">
+        <h3>Pix</h3>
+        <div class="gifts__qr">QR Code</div>
+        <p class="gifts__pixkey">Chave: <em>a definir</em></p>
+      </div>
+      <div class="gifts__card gifts__card--dream">
+        <h3>Nosso Sonho</h3>
+        <p>Cada contribuição ajudará em:</p>
+        <ul class="gifts__list">
+          <li>Nossa casa</li>
+          <li>Nossa viagem</li>
+          <li>Nosso casamento</li>
+          <li>Nossa mudança para o Chile</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section faq" id="faq">
+    <div class="section__head section__head--center">
+      <p class="eyebrow reveal">Dúvidas</p>
+      <h2 class="section__title reveal">Perguntas Frequentes</h2>
+    </div>
+    <div class="faq__list reveal">
+      <div class="faq__item">
+        <button class="faq__question" aria-expanded="false">Posso levar acompanhante?<span class="faq__icon">+</span></button>
+        <div class="faq__answer"><p>Para organizarmos tudo com carinho, pedimos que confirme acompanhantes junto ao convite.</p></div>
+      </div>
+      <div class="faq__item">
+        <button class="faq__question" aria-expanded="false">Há estacionamento?<span class="faq__icon">+</span></button>
+        <div class="faq__answer"><p>Sim, o local conta com estacionamento próprio. Enviaremos as orientações assim que o espaço for confirmado.</p></div>
+      </div>
+      <div class="faq__item">
+        <button class="faq__question" aria-expanded="false">Até quando confirmar?<span class="faq__icon">+</span></button>
+        <div class="faq__answer"><p>Pedimos que a confirmação de presença seja feita até 30 dias antes da celebração.</p></div>
+      </div>
+      <div class="faq__item">
+        <button class="faq__question" aria-expanded="false">Teremos crianças?<span class="faq__icon">+</span></button>
+        <div class="faq__answer"><p>Este será um momento voltado para os adultos. Agradecemos a compreensão de todas as famílias.</p></div>
+      </div>
+      <div class="faq__item">
+        <button class="faq__question" aria-expanded="false">Qual roupa devo usar?<span class="faq__icon">+</span></button>
+        <div class="faq__answer"><p>Sugerimos esporte fino ou casual elegante — mas o mais importante é vir à vontade.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INSTAGRAM -->
+  <section class="section instagram section--tight" id="instagram">
+    <p class="eyebrow reveal">Compartilhe esse momento</p>
+    <h2 class="section__title reveal">#NoivadoVicenteeRayssa</h2>
+    <p class="instagram__text reveal">Marque suas fotos com a nossa hashtag e ajude a construir a memória do nosso noivado.</p>
+  </section>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="footer" id="rodape">
+  <p class="footer__quote">O amor não conhece fronteiras.<br />Obrigado por fazer parte da nossa história.</p>
+  <p class="footer__names"><span>Vicente</span><span class="cover__amp">&amp;</span><span>Rayssa</span></p>
+  <p class="footer__meta">05 Setembro 2026 · Belém — Pará</p>
+</footer>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Visualização de foto" hidden>
+  <button type="button" class="lightbox__close" id="lightboxClose">Fechar</button>
+  <div class="lightbox__stage"><div class="ph" id="lightboxCaption">Foto</div></div>
+</div>
+
+<script>
+(function(){
+'use strict';
+
+var cover=document.getElementById('cover');
+var enterBtn=document.getElementById('enterBtn');
+var body=document.body;
+body.classList.add('no-scroll');
+
+function enterSite(){
+  cover.classList.add('is-hidden');
+  body.classList.remove('no-scroll');
+}
+if(enterBtn) enterBtn.addEventListener('click', enterSite);
+cover.addEventListener('wheel', function(e){ if(e.deltaY>12) enterSite(); }, {passive:true});
+
+var header=document.getElementById('siteHeader');
+var menuToggle=document.getElementById('menuToggle');
+var primaryNav=document.getElementById('primaryNav');
+
+function onScrollHeader(){
+  if(window.scrollY>40) header.classList.add('is-scrolled');
+  else header.classList.remove('is-scrolled');
+}
+window.addEventListener('scroll', onScrollHeader, {passive:true});
+onScrollHeader();
+
+if(menuToggle && primaryNav){
+  menuToggle.addEventListener('click', function(){
+    var open=primaryNav.classList.toggle('is-open');
+    menuToggle.classList.toggle('is-open', open);
+    menuToggle.setAttribute('aria-expanded', String(open));
+  });
+  primaryNav.querySelectorAll('a').forEach(function(link){
+    link.addEventListener('click', function(){
+      primaryNav.classList.remove('is-open');
+      menuToggle.classList.remove('is-open');
+      menuToggle.setAttribute('aria-expanded','false');
+    });
+  });
+}
+
+var revealEls=document.querySelectorAll('.reveal');
+if('IntersectionObserver' in window){
+  var io=new IntersectionObserver(function(entries){
+    entries.forEach(function(entry, i){
+      if(entry.isIntersecting){
+        var delay=Math.min(i*30,200);
+        setTimeout(function(){ entry.target.classList.add('is-visible'); }, delay);
+        io.unobserve(entry.target);
+      }
+    });
+  }, {threshold:.15, rootMargin:'0px 0px -50px 0px'});
+  revealEls.forEach(function(el){ io.observe(el); });
+} else {
+  revealEls.forEach(function(el){ el.classList.add('is-visible'); });
+}
+
+var EVENT_DATE=new Date('2026-09-05T17:00:00-03:00').getTime();
+var elDays=document.getElementById('cd-days');
+var elHours=document.getElementById('cd-hours');
+var elMinutes=document.getElementById('cd-minutes');
+var elSeconds=document.getElementById('cd-seconds');
+function pad(n){ return String(n).padStart(2,'0'); }
+function updateCountdown(){
+  var diff=EVENT_DATE-Date.now();
+  if(diff<=0){ elDays.textContent=elHours.textContent=elMinutes.textContent=elSeconds.textContent='00'; return; }
+  elDays.textContent=pad(Math.floor(diff/86400000));
+  elHours.textContent=pad(Math.floor(diff/3600000)%24);
+  elMinutes.textContent=pad(Math.floor(diff/60000)%60);
+  elSeconds.textContent=pad(Math.floor(diff/1000)%60);
+}
+if(elDays){ updateCountdown(); setInterval(updateCountdown,1000); }
+
+var faqItems=document.querySelectorAll('.faq__item');
+faqItems.forEach(function(item){
+  var question=item.querySelector('.faq__question');
+  var answer=item.querySelector('.faq__answer');
+  question.addEventListener('click', function(){
+    var isOpen=item.classList.contains('is-open');
+    faqItems.forEach(function(other){
+      other.classList.remove('is-open');
+      other.querySelector('.faq__question').setAttribute('aria-expanded','false');
+      other.querySelector('.faq__answer').style.maxHeight=null;
+    });
+    if(!isOpen){
+      item.classList.add('is-open');
+      question.setAttribute('aria-expanded','true');
+      answer.style.maxHeight=answer.scrollHeight+'px';
+    }
+  });
+});
+
+var galleryItems=document.querySelectorAll('.gallery__item');
+var lightbox=document.getElementById('lightbox');
+var lightboxClose=document.getElementById('lightboxClose');
+var lightboxCaption=document.getElementById('lightboxCaption');
+var lastFocused=null;
+
+function openLightbox(caption){
+  lastFocused=document.activeElement;
+  lightboxCaption.textContent=caption||'Foto';
+  lightbox.hidden=false;
+  requestAnimationFrame(function(){ lightbox.classList.add('is-open'); });
+  lightboxClose.focus();
+  body.classList.add('no-scroll');
+}
+function closeLightbox(){
+  lightbox.classList.remove('is-open');
+  body.classList.remove('no-scroll');
+  setTimeout(function(){ lightbox.hidden=true; },300);
+  if(lastFocused) lastFocused.focus();
+}
+galleryItems.forEach(function(item){
+  item.addEventListener('click', function(){ openLightbox(item.getAttribute('data-caption')); });
+});
+if(lightboxClose) lightboxClose.addEventListener('click', closeLightbox);
+if(lightbox) lightbox.addEventListener('click', function(e){ if(e.target===lightbox) closeLightbox(); });
+document.addEventListener('keydown', function(e){
+  if(e.key==='Escape' && lightbox && lightbox.classList.contains('is-open')) closeLightbox();
+});
+
+})();
+</script>
+</body>
+</html>
