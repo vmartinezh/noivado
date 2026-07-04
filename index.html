@@ -176,14 +176,16 @@ button{font-family:inherit;border:none;background:none;cursor:pointer;color:inhe
 .dresscode__card{background:var(--bg);padding:1.9rem;text-align:left}
 .dresscode__card h3{font-size:1.15rem;margin-bottom:.5rem}
 .dresscode__card p{font-size:.9rem;color:var(--ink-faint)}
-.dresscode__note{margin-top:2.2rem;font-family:var(--font-title);font-style:italic;color:var(--ink-soft);font-size:.98rem;line-height:1.7}
+.dresscode__note{margin-top:2.2rem;font-family:var(--font-title);font-style:italic;color:var(--ink-soft);font-size:1.2rem;line-height:1.7}
 
-.looks{margin-top:2.8rem;padding-top:2.4rem;border-top:1px solid var(--line);max-width:520px;margin-left:auto;margin-right:auto}
-.looks__title{font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);margin-bottom:1.6rem}
-.looks__grid{display:grid;grid-template-columns:1fr 1fr;gap:2rem;text-align:left}
-.looks__label{display:block;font-family:var(--font-title);font-style:italic;font-size:1.1rem;color:var(--ink);margin-bottom:.7rem}
-.looks__list li{font-size:.9rem;color:var(--ink-faint);padding:.4rem 0;border-top:1px solid var(--line)}
-.looks__list li:first-child{border-top:none}
+.looks{margin-top:2.8rem;padding-top:2.4rem;border-top:1px solid var(--line)}
+.looks__title{font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);margin-bottom:2rem;text-align:center}
+.looks__group{margin-bottom:2.4rem}
+.looks__group:last-child{margin-bottom:0}
+.looks__label{display:block;font-family:var(--font-title);font-style:italic;font-size:1.2rem;color:var(--ink);margin-bottom:1.2rem;text-align:center}
+.looks__grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.4rem}
+.look{margin:0;text-align:center}
+.look img{width:100%;height:190px;object-fit:contain}
 
 /* ---------- galeria ---------- */
 .gallery__grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2px}
@@ -238,7 +240,7 @@ button{font-family:inherit;border:none;background:none;cursor:pointer;color:inhe
   .hero__text{order:2;text-align:center}
   .info__grid{grid-template-columns:1fr}
   .dresscode__cards{grid-template-columns:1fr}
-  .looks__grid{grid-template-columns:1fr;gap:1.6rem}
+  .looks__grid{grid-template-columns:repeat(2,1fr)}
   .gifts__items{grid-template-columns:repeat(2,1fr)}
 }
 @media (max-width:720px){
@@ -414,17 +416,20 @@ button{font-family:inherit;border:none;background:none;cursor:pointer;color:inhe
     </div>
 
     <div class="dresscode__palette reveal" aria-label="Paleta de cores sugerida">
-      <span class="swatch" style="background:#6E7B4A" title="Verde Oliva"></span>
-      <span class="swatch" style="background:#4A5D3C" title="Verde Musgo"></span>
-      <span class="swatch" style="background:#1B3358" title="Azul Marinho"></span>
-      <span class="swatch" style="background:#1B4E52" title="Azul Petróleo"></span>
-      <span class="swatch" style="background:#B5573A" title="Terracota"></span>
-      <span class="swatch" style="background:#5C1F30" title="Vinho"></span>
-      <span class="swatch" style="background:#5B3358" title="Ameixa"></span>
-      <span class="swatch" style="background:#C68A2E" title="Mostarda"></span>
-      <span class="swatch" style="background:#4B4B4D" title="Cinza Chumbo"></span>
+      <span class="swatch" style="background:#9D9E80" title="Verde Sálvia"></span>
+      <span class="swatch" style="background:#A6A17F" title="Verde Oliva Claro"></span>
+      <span class="swatch" style="background:#8997A4" title="Azul Sereno"></span>
+      <span class="swatch" style="background:#899098" title="Azul Acinzentado"></span>
+      <span class="swatch" style="background:#BCA8B1" title="Lilás Suave"></span>
+      <span class="swatch" style="background:#D2A399" title="Rosa Queimado"></span>
+      <span class="swatch" style="background:#CA9279" title="Terracota Claro"></span>
+      <span class="swatch" style="background:#E4C58F" title="Amarelo Manteiga"></span>
+      <span class="swatch" style="background:#D6A968" title="Mostarda Suave"></span>
+      <span class="swatch" style="background:#7F5147" title="Vinho Claro"></span>
+      <span class="swatch" style="background:#BFB8AE" title="Cinza Claro"></span>
+      <span class="swatch" style="background:#615E59" title="Grafite Suave"></span>
     </div>
-    <p class="dresscode__paletteLabels reveal">Verde Oliva · Verde Musgo · Azul Marinho · Azul Petróleo · Terracota · Vinho · Ameixa · Mostarda · Cinza Chumbo</p>
+    <p class="dresscode__paletteLabels reveal">Verde Sálvia · Verde Oliva Claro · Azul Sereno · Azul Acinzentado · Lilás Suave · Rosa Queimado · Terracota Claro · Amarelo Manteiga · Mostarda Suave · Vinho Claro · Cinza Claro · Grafite Suave</p>
 
     <div class="dresscode__cards reveal">
       <div class="dresscode__card">
@@ -439,25 +444,38 @@ button{font-family:inherit;border:none;background:none;cursor:pointer;color:inhe
 
     <div class="looks reveal">
       <p class="looks__title">Opções de looks</p>
-      <div class="looks__grid">
-        <div class="looks__col">
-          <span class="looks__label">Elas</span>
-          <ul class="looks__list">
-            <li>Vestido longo</li>
-            <li>Saia longa + top</li>
-            <li>Conjunto (calça larga + blusa)</li>
-            <li>Macacão</li>
-            <li>Saia curta ou short alfaiataria</li>
-          </ul>
+      <div class="looks__group">
+        <span class="looks__label">Elas</span>
+        <div class="looks__grid">
+          <figure class="look">
+            <img src="assets/look-elas-vestido.png" alt="Vestido longo verde sálvia">
+          </figure>
+          <figure class="look">
+            <img src="assets/look-elas-conjunto-rosa.png" alt="Top e saia longa rosa queimado">
+          </figure>
+          <figure class="look">
+            <img src="assets/look-elas-macacao.png" alt="Macacão azul acinzentado">
+          </figure>
+          <figure class="look">
+            <img src="assets/look-elas-conjunto-lilas.png" alt="Cami lilás e calça pantalona vinho">
+          </figure>
         </div>
-        <div class="looks__col">
-          <span class="looks__label">Eles</span>
-          <ul class="looks__list">
-            <li>Calça + camisa social</li>
-            <li>Calça + polo</li>
-            <li>Bermuda + camisa</li>
-            <li>Bermuda + polo</li>
-          </ul>
+      </div>
+      <div class="looks__group">
+        <span class="looks__label">Eles</span>
+        <div class="looks__grid">
+          <figure class="look">
+            <img src="assets/look-eles-verde.png" alt="Camisa verde sálvia e bermuda preta">
+          </figure>
+          <figure class="look">
+            <img src="assets/look-eles-azul.png" alt="Camisa azul acinzentado e bermuda jeans">
+          </figure>
+          <figure class="look">
+            <img src="assets/look-eles-terracota.png" alt="Camisa terracota e bermuda marinho">
+          </figure>
+          <figure class="look">
+            <img src="assets/look-eles-grafite.png" alt="Polo grafite e calça">
+          </figure>
         </div>
       </div>
     </div>
