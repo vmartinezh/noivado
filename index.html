@@ -192,14 +192,21 @@ button{font-family:inherit;border:none;background:none;cursor:pointer;color:inhe
 .gallery__item:hover .ph{transform:scale(1.05)}
 
 /* ---------- presentes ---------- */
-.gifts__grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line)}
-.gifts__card{background:var(--card);padding:2.2rem;text-align:center}
-.gifts__card h3{font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);margin-bottom:1.1rem;font-family:var(--font-body);font-weight:500}
-.gifts__qr{width:120px;height:120px;margin:0 auto 1rem;border:1px solid var(--line-strong);display:flex;align-items:center;justify-content:center;font-size:.68rem;color:var(--ink-faint);letter-spacing:.08em;text-transform:uppercase}
-.gifts__pixkey{font-size:.88rem;color:var(--ink-faint)}
-.gifts__card--dream{text-align:left}
-.gifts__card--dream h3{text-align:center}
-.gifts__card--dream>p{margin-bottom:.9rem;color:var(--ink-faint);font-size:.9rem;text-align:center}
+.gifts__note{max-width:560px;margin:0 auto 2.8rem;text-align:center;font-size:.92rem;color:var(--ink-faint)}
+.gifts__note em{color:var(--ink);font-style:normal}
+.gifts__items{display:grid;grid-template-columns:repeat(3,1fr);gap:1.8rem;margin-bottom:3rem}
+.gift{position:relative;background:var(--card);border:1px solid var(--line-strong);border-radius:90px 90px 10px 10px;padding:2.4rem 1.5rem 2rem;text-align:center;display:flex;flex-direction:column;align-items:center;transition:transform .35s var(--ease),box-shadow .35s var(--ease)}
+.gift:hover{transform:translateY(-4px);box-shadow:0 14px 28px -18px rgba(71,35,17,.35)}
+.gift__heart{position:absolute;top:1.3rem;right:1.5rem;color:var(--accent);font-size:.95rem;opacity:.55;line-height:1}
+.gift__img{width:104px;height:104px;object-fit:contain;margin-bottom:1.1rem}
+.gift__img--cover{object-fit:cover}
+.gift__title{font-family:var(--font-title);font-style:italic;font-size:1.25rem;font-weight:500;color:var(--ink);margin-bottom:.6rem}
+.gift__desc{font-size:.85rem;color:var(--ink-faint);line-height:1.55;min-height:3.3em;margin-bottom:1.3rem}
+.gift__price{display:inline-block;background:var(--accent);color:var(--card);font-family:var(--font-body);font-size:.82rem;letter-spacing:.05em;padding:.5rem 1.4rem;border-radius:3px;margin-bottom:1.3rem}
+.gift__qr{width:98px;height:98px;border:1px solid var(--line-strong);padding:6px;background:#fff;object-fit:contain}
+.gifts__dream{max-width:480px;margin:0 auto;text-align:left;border:1px solid var(--line);background:var(--card);padding:2.2rem 2.4rem}
+.gifts__dream h3{font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);margin-bottom:1.1rem;font-family:var(--font-body);font-weight:500;text-align:center}
+.gifts__dream>p{margin-bottom:.9rem;color:var(--ink-faint);font-size:.9rem;text-align:center}
 .gifts__list li{padding:.55rem 0;border-top:1px solid var(--line);font-size:.95rem;color:var(--ink)}
 .gifts__list li:first-child{border-top:none}
 
@@ -238,7 +245,7 @@ button{font-family:inherit;border:none;background:none;cursor:pointer;color:inhe
   .info__grid{grid-template-columns:1fr}
   .dresscode__cards{grid-template-columns:1fr}
   .looks__grid{grid-template-columns:1fr;gap:1.6rem}
-  .gifts__grid{grid-template-columns:1fr}
+  .gifts__items{grid-template-columns:repeat(2,1fr)}
 }
 @media (max-width:720px){
   .header__nav{position:fixed;inset:0 0 0 auto;width:min(78vw,300px);height:100vh;background:var(--bg);flex-direction:column;justify-content:center;align-items:flex-start;gap:1.6rem;padding:2rem 2.4rem;transform:translateX(100%);transition:transform .4s var(--ease);border-left:1px solid var(--line)}
@@ -255,6 +262,7 @@ button{font-family:inherit;border:none;background:none;cursor:pointer;color:inhe
   .cover__names{font-size:2.3rem}
   .countdown__grid{gap:.9rem 1.4rem}
   .countdown__unit{min-width:66px}
+  .gifts__items{grid-template-columns:1fr}
 }
 </style>
 </head>
@@ -481,26 +489,71 @@ button{font-family:inherit;border:none;background:none;cursor:pointer;color:inhe
   <!-- PRESENTES -->
   <section class="section gifts" id="presentes">
     <div class="section__head section__head--center">
-      <p class="eyebrow reveal">Carinho</p>
-      <h2 class="section__title reveal">Sua presença é o maior presente.</h2>
-      <p class="section__lede reveal">Mas, caso deseje nos presentear, deixamos algumas opções.</p>
+      <h2 class="section__title reveal">Lista de presentes</h2>
+      <p class="section__lede reveal">Mais do que presentes, vocês estão ajudando a construir nossa história entre Brasil e Chile.</p>
     </div>
-    <div class="gifts__grid reveal">
-      <div class="gifts__card">
-        <h3>Pix</h3>
-        <div class="gifts__qr"><img src="assets/pix-qr.png.jpg" alt="Vicente e Rayssa" style="width:100%;height:100%;object-fit:cover"></div>
-        <p class="gifts__pixkey">Chave: <em>038.653.442-08</em></p>
+    <p class="gifts__note reveal">Escolha um presente e aponte a câmera do seu banco para o QR Code do cartão — todos usam a mesma chave Pix: <em>038.653.442-08</em></p>
+
+    <div class="gifts__items reveal">
+      <div class="gift">
+        <span class="gift__heart">&#9825;</span>
+        <img class="gift__img" src="assets/gift-mala.png.png" alt="Mala dos Sonhos">
+        <h3 class="gift__title">Mala dos Sonhos</h3>
+        <p class="gift__desc">Cada amor tem uma história. A nossa também vai na mala.</p>
+        <span class="gift__price">R$ 120,00</span>
+        <img class="gift__qr" src="assets/pix-qr.png.jpg" alt="QR Code Pix">
       </div>
-      <div class="gifts__card gifts__card--dream">
-        <h3>Nosso Sonho</h3>
-        <p>Cada contribuição ajudará em:</p>
-        <ul class="gifts__list">
-          <li>Nossa casa</li>
-          <li>Nossa viagem</li>
-          <li>Nosso casamento</li>
-          <li>Nossa mudança para o Chile</li>
-        </ul>
+      <div class="gift">
+        <span class="gift__heart">&#9825;</span>
+        <img class="gift__img" src="assets/gift-vinho.png.png" alt="Vinho Chileno">
+        <h3 class="gift__title">Vinho Chileno</h3>
+        <p class="gift__desc">Um brinde ao amor, ao Chile e às longas conversas a dois.</p>
+        <span class="gift__price">R$ 150,00</span>
+        <img class="gift__qr" src="assets/pix-qr.png.jpg" alt="QR Code Pix">
       </div>
+      <div class="gift">
+        <span class="gift__heart">&#9825;</span>
+        <img class="gift__img" src="assets/gift-milhas.png.png" alt="Milhas do Amor">
+        <h3 class="gift__title">Milhas do Amor</h3>
+        <p class="gift__desc">Cada gesto aproxima nosso amor do próximo destino.</p>
+        <span class="gift__price">R$ 180,00</span>
+        <img class="gift__qr" src="assets/pix-qr.png.jpg" alt="QR Code Pix">
+      </div>
+      <div class="gift">
+        <span class="gift__heart">&#9825;</span>
+        <img class="gift__img" src="assets/gift-cordilheira.png.png" alt="Cordilheira do Amor">
+        <h3 class="gift__title">Cordilheira do Amor</h3>
+        <p class="gift__desc">Nosso amor atravessou fronteiras, e agora atravessa a cordilheira.</p>
+        <span class="gift__price">R$ 200,00</span>
+        <img class="gift__qr" src="assets/pix-qr.png.jpg" alt="QR Code Pix">
+      </div>
+      <div class="gift">
+        <span class="gift__heart">&#9825;</span>
+        <img class="gift__img gift__img--cover" src="assets/gift-passagem.png.png" alt="Passagem dos Noivos">
+        <h3 class="gift__title">Passagem dos Noivos</h3>
+        <p class="gift__desc">Embarque para o maior capítulo da nossa história.</p>
+        <span class="gift__price">R$ 230,00</span>
+        <img class="gift__qr" src="assets/pix-qr.png.jpg" alt="QR Code Pix">
+      </div>
+      <div class="gift">
+        <span class="gift__heart">&#9825;</span>
+        <img class="gift__img" src="assets/gift-chile.png.png" alt="Chile, Allá Vamos!">
+        <h3 class="gift__title">Chile, Allá Vamos!</h3>
+        <p class="gift__desc">Nosso casamento é no Chile. Nossa gratidão vem de qualquer lugar do mundo.</p>
+        <span class="gift__price">R$ 280,00</span>
+        <img class="gift__qr" src="assets/pix-qr.png.jpg" alt="QR Code Pix">
+      </div>
+    </div>
+
+    <div class="gifts__dream reveal">
+      <h3>Nosso Sonho</h3>
+      <p>Cada contribuição ajudará em:</p>
+      <ul class="gifts__list">
+        <li>Nossa casa</li>
+        <li>Nossa viagem</li>
+        <li>Nosso casamento</li>
+        <li>Nossa mudança para o Chile</li>
+      </ul>
     </div>
   </section>
 
