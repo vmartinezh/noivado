@@ -221,6 +221,11 @@ button{font-family:inherit;border:none;background:none;cursor:pointer;color:inhe
 .instagram{text-align:center}
 .instagram__text{max-width:480px;margin:.6rem auto 0;color:var(--ink-faint);font-size:.95rem;text-align:justify}
 
+/* ---------- playlist ---------- */
+.playlist{text-align:center}
+.playlist__embed{max-width:640px;margin:2rem auto 0}
+.playlist__embed iframe{width:100%;display:block}
+
 /* ---------- footer ---------- */
 .footer{background:var(--ink);color:var(--bg);text-align:center;padding:3.6rem 1.5rem}
 .footer__quote{font-family:var(--font-title);font-style:italic;font-size:clamp(1.1rem,2.2vw,1.4rem);line-height:1.6;margin-bottom:1.6rem;max-width:520px;margin-left:auto;margin-right:auto}
@@ -294,6 +299,7 @@ button{font-family:inherit;border:none;background:none;cursor:pointer;color:inhe
       <a href="#dresscode">Dress Code</a>
       <a href="#presentes">Presentes</a>
       <a href="#faq">FAQ</a>
+      <a href="#playlist">Playlist</a>
     </nav>
   </div>
 </header>
@@ -628,6 +634,18 @@ button{font-family:inherit;border:none;background:none;cursor:pointer;color:inhe
     <p class="eyebrow reveal">Compartilhe esse momento</p>
     <h2 class="section__title reveal">#NoivadoVicente&amp;Rayssa</h2>
     <p class="instagram__text reveal">Marque suas fotos com a nossa hashtag e ajude a construir a memória do nosso noivado.</p>
+  </section>
+
+  <!-- PLAYLIST -->
+  <section class="section playlist section--tight" id="playlist">
+    <div class="section__head section__head--center">
+      <p class="eyebrow reveal">Trilha sonora</p>
+      <h2 class="section__title reveal">Nossa Playlist</h2>
+      <p class="section__lede reveal">As músicas que embalam a nossa história. Aperte o play e celebre com a gente.</p>
+    </div>
+    <div class="playlist__embed reveal">
+      <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/playlist/35Vmze8lJEPCCtNuIXaJd4?utm_source=generator&si=4a8706c5ab714f74" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+    </div>
   </section>
 
 </main>
