@@ -169,18 +169,21 @@ button{font-family:inherit;border:none;background:none;cursor:pointer;color:inhe
 
 /* ---------- dress code ---------- */
 .dresscode{text-align:center}
-.dresscode__palette{display:flex;justify-content:center;gap:.7rem;margin-bottom:2.4rem}
-.swatch{width:34px;height:34px;border:1px solid var(--line-strong)}
-.swatch--1{background:var(--ink)}
-.swatch--2{background:var(--accent)}
-.swatch--3{background:#C8AF8E}
-.swatch--4{background:var(--bg)}
-.swatch--5{background:var(--card)}
+.dresscode__palette{display:flex;flex-wrap:wrap;justify-content:center;gap:.6rem;margin-bottom:1rem}
+.swatch{width:44px;height:44px;border:1px solid var(--line-strong);display:inline-block}
+.dresscode__paletteLabels{max-width:520px;margin:0 auto 2.6rem;font-size:.72rem;letter-spacing:.06em;color:var(--ink-faint)}
 .dresscode__cards{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);max-width:720px;margin:0 auto}
 .dresscode__card{background:var(--bg);padding:1.9rem;text-align:left}
 .dresscode__card h3{font-size:1.15rem;margin-bottom:.5rem}
 .dresscode__card p{font-size:.9rem;color:var(--ink-faint)}
-.dresscode__note{margin-top:1.8rem;font-family:var(--font-title);font-style:italic;color:var(--ink-soft);font-size:.98rem}
+.dresscode__note{margin-top:2.2rem;font-family:var(--font-title);font-style:italic;color:var(--ink-soft);font-size:.98rem;line-height:1.7}
+
+.looks{margin-top:2.8rem;padding-top:2.4rem;border-top:1px solid var(--line);max-width:520px;margin-left:auto;margin-right:auto}
+.looks__title{font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);margin-bottom:1.6rem}
+.looks__grid{display:grid;grid-template-columns:1fr 1fr;gap:2rem;text-align:left}
+.looks__label{display:block;font-family:var(--font-title);font-style:italic;font-size:1.1rem;color:var(--ink);margin-bottom:.7rem}
+.looks__list li{font-size:.9rem;color:var(--ink-faint);padding:.4rem 0;border-top:1px solid var(--line)}
+.looks__list li:first-child{border-top:none}
 
 /* ---------- galeria ---------- */
 .gallery__grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2px}
@@ -234,6 +237,7 @@ button{font-family:inherit;border:none;background:none;cursor:pointer;color:inhe
   .hero__text{order:2;text-align:center}
   .info__grid{grid-template-columns:1fr}
   .dresscode__cards{grid-template-columns:1fr}
+  .looks__grid{grid-template-columns:1fr;gap:1.6rem}
   .gifts__grid{grid-template-columns:1fr}
 }
 @media (max-width:720px){
@@ -288,7 +292,7 @@ button{font-family:inherit;border:none;background:none;cursor:pointer;color:inhe
 
   <!-- HERO -->
   <section class="hero" id="hero">
-    <div class="hero__photo reveal"><img src="assets/hero.jpg" alt="Vicente e Rayssa" style="width:100%;height:100%;object-fit:cover"></div>
+    <div class="hero__photo ph reveal"><img src="assets/hero.jpg" alt="Vicente e Rayssa" style="width:100%;height:100%;object-fit:cover"></div>
     <div class="hero__text">
       <p class="eyebrow reveal">Nosso Noivado</p>
       <h1 class="hero__title reveal">Vicente &amp; Rayssa</h1>
@@ -393,9 +397,9 @@ button{font-family:inherit;border:none;background:none;cursor:pointer;color:inhe
         <p>17h</p>
       </div>
       <div class="info__card">
-        <h3>Endereço</h3>
-        <p id="venueName">Alameda Pará, 60<br />Parque Guajará</p>
-        <a id="mapsLink" class="link info__mapsBtn" href="https://maps.app.goo.gl/tGKZR7Cri2KhtvGEA" target="_blank" rel="noopener">Google Maps</a>
+        <h3>Local</h3>
+        <p id="venueName">Espaço a definir<br />Belém — Pará</p>
+        <a id="mapsLink" class="link info__mapsBtn" href="https://www.google.com/maps/search/?api=1&query=Bel%C3%A9m%20-%20Par%C3%A1" target="_blank" rel="noopener">Google Maps</a>
       </div>
     </div>
   </section>
@@ -403,24 +407,62 @@ button{font-family:inherit;border:none;background:none;cursor:pointer;color:inhe
   <!-- DRESS CODE -->
   <section class="section dresscode" id="dresscode">
     <div class="section__head section__head--center">
-      <p class="eyebrow reveal">Traje</p>
+      <p class="eyebrow reveal">Trajes dos Convidados</p>
       <h2 class="section__title reveal">Dress Code</h2>
     </div>
-    <div class="dresscode__palette reveal">
-      <span class="swatch swatch--1"></span><span class="swatch swatch--2"></span><span class="swatch swatch--3"></span><span class="swatch swatch--4"></span><span class="swatch swatch--5"></span>
+
+    <div class="dresscode__palette reveal" aria-label="Paleta de cores sugerida">
+      <span class="swatch" style="background:#6E7B4A" title="Verde Oliva"></span>
+      <span class="swatch" style="background:#4A5D3C" title="Verde Musgo"></span>
+      <span class="swatch" style="background:#1B3358" title="Azul Marinho"></span>
+      <span class="swatch" style="background:#1B4E52" title="Azul Petróleo"></span>
+      <span class="swatch" style="background:#B5573A" title="Terracota"></span>
+      <span class="swatch" style="background:#5C1F30" title="Vinho"></span>
+      <span class="swatch" style="background:#5B3358" title="Ameixa"></span>
+      <span class="swatch" style="background:#C68A2E" title="Mostarda"></span>
+      <span class="swatch" style="background:#4B4B4D" title="Cinza Chumbo"></span>
     </div>
+    <p class="dresscode__paletteLabels reveal">Verde Oliva · Verde Musgo · Azul Marinho · Azul Petróleo · Terracota · Vinho · Ameixa · Mostarda · Cinza Chumbo</p>
+
     <div class="dresscode__cards reveal">
       <div class="dresscode__card">
-        <h3>Esporte Fino</h3>
-        <p>Elegância descontraída — tecidos leves e cores naturais para uma tarde ao ar livre.</p>
+        <h3>Casual Chic</h3>
+        <p>Não é necessário traje social. Aposte em um look leve, elegante e confortável para celebrarmos juntos esse dia tão especial.</p>
       </div>
       <div class="dresscode__card">
         <h3>Casual Elegante</h3>
-        <p>Conforto com bom gosto — peças simples que acompanham o clima intimista da celebração.</p>
+        <p>Queremos que todos estejam confortáveis e bem vestidos para celebrar conosco. Opte por roupas leves, em tons suaves ou naturais, ideais para uma tarde especial ao ar livre.</p>
       </div>
     </div>
-    <p class="dresscode__note reveal">Inspiramos estas cores para harmonizar com a decoração. Não é obrigatório.</p>
+
+    <div class="looks reveal">
+      <p class="looks__title">Opções de looks</p>
+      <div class="looks__grid">
+        <div class="looks__col">
+          <span class="looks__label">Elas</span>
+          <ul class="looks__list">
+            <li>Vestido longo</li>
+            <li>Saia longa + top</li>
+            <li>Conjunto (calça larga + blusa)</li>
+            <li>Macacão</li>
+            <li>Saia curta ou short alfaiataria</li>
+          </ul>
+        </div>
+        <div class="looks__col">
+          <span class="looks__label">Eles</span>
+          <ul class="looks__list">
+            <li>Calça + camisa social</li>
+            <li>Calça + polo</li>
+            <li>Bermuda + camisa</li>
+            <li>Bermuda + polo</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <p class="dresscode__note reveal">Evite usar: branco, off white, bege, areia e tons claros.<br />Essas cores são exclusivas para os noivos.</p>
   </section>
+
 
   <!-- GALERIA -->
   <section class="section gallery" id="galeria">
