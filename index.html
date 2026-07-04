@@ -169,9 +169,10 @@ button{font-family:inherit;border:none;background:none;cursor:pointer;color:inhe
 
 /* ---------- dress code ---------- */
 .dresscode{text-align:center}
-.dresscode__palette{display:flex;flex-wrap:wrap;justify-content:center;gap:.6rem;margin-bottom:1rem}
-.swatch{width:44px;height:44px;border:1px solid var(--line-strong);display:inline-block}
-.dresscode__paletteLabels{max-width:520px;margin:0 auto 2.6rem;font-size:.72rem;letter-spacing:.06em;color:var(--ink-faint)}
+.dresscode__palette{display:flex;flex-wrap:wrap;justify-content:center;gap:1.5rem 1.1rem;margin-bottom:2.6rem}
+.swatch{display:flex;flex-direction:column;align-items:center;gap:.6rem;width:78px}
+.swatch__circle{width:52px;height:52px;border-radius:50%;border:1px solid var(--line-strong);display:block}
+.swatch__name{font-size:.68rem;letter-spacing:.03em;color:var(--ink-faint);text-align:center;line-height:1.3}
 .dresscode__cards{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);max-width:720px;margin:0 auto}
 .dresscode__card{background:var(--bg);padding:1.9rem;text-align:left}
 .dresscode__card h3{font-size:1.15rem;margin-bottom:.5rem}
@@ -234,6 +235,11 @@ button{font-family:inherit;border:none;background:none;cursor:pointer;color:inhe
 .lightbox__close{position:absolute;top:1.5rem;right:1.7rem;font-size:.75rem;letter-spacing:.14em;text-transform:uppercase;color:var(--bg);border-bottom:1px solid rgba(244,234,222,.5);padding-bottom:2px}
 
 /* ---------- responsivo ---------- */
+@media (min-width:901px){
+  .dresscode__palette{flex-wrap:nowrap;gap:.7rem}
+  .swatch{width:auto;flex:1;min-width:0}
+  .swatch__circle{width:44px;height:44px;margin:0 auto}
+}
 @media (max-width:900px){
   .hero{grid-template-columns:1fr}
   .hero__photo{order:1;max-width:380px;margin:0 auto}
@@ -416,20 +422,55 @@ button{font-family:inherit;border:none;background:none;cursor:pointer;color:inhe
     </div>
 
     <div class="dresscode__palette reveal" aria-label="Paleta de cores sugerida">
-      <span class="swatch" style="background:#9D9E80" title="Verde Sálvia"></span>
-      <span class="swatch" style="background:#A6A17F" title="Verde Oliva Claro"></span>
-      <span class="swatch" style="background:#8997A4" title="Azul Sereno"></span>
-      <span class="swatch" style="background:#899098" title="Azul Acinzentado"></span>
-      <span class="swatch" style="background:#BCA8B1" title="Lilás Suave"></span>
-      <span class="swatch" style="background:#D2A399" title="Rosa Queimado"></span>
-      <span class="swatch" style="background:#CA9279" title="Terracota Claro"></span>
-      <span class="swatch" style="background:#E4C58F" title="Amarelo Manteiga"></span>
-      <span class="swatch" style="background:#D6A968" title="Mostarda Suave"></span>
-      <span class="swatch" style="background:#7F5147" title="Vinho Claro"></span>
-      <span class="swatch" style="background:#BFB8AE" title="Cinza Claro"></span>
-      <span class="swatch" style="background:#615E59" title="Grafite Suave"></span>
+      <div class="swatch">
+        <span class="swatch__circle" style="background:#9D9E80"></span>
+        <span class="swatch__name">Verde Sálvia</span>
+      </div>
+      <div class="swatch">
+        <span class="swatch__circle" style="background:#A6A17F"></span>
+        <span class="swatch__name">Verde Oliva Claro</span>
+      </div>
+      <div class="swatch">
+        <span class="swatch__circle" style="background:#8997A4"></span>
+        <span class="swatch__name">Azul Sereno</span>
+      </div>
+      <div class="swatch">
+        <span class="swatch__circle" style="background:#899098"></span>
+        <span class="swatch__name">Azul Acinzentado</span>
+      </div>
+      <div class="swatch">
+        <span class="swatch__circle" style="background:#BCA8B1"></span>
+        <span class="swatch__name">Lilás Suave</span>
+      </div>
+      <div class="swatch">
+        <span class="swatch__circle" style="background:#D2A399"></span>
+        <span class="swatch__name">Rosa Queimado</span>
+      </div>
+      <div class="swatch">
+        <span class="swatch__circle" style="background:#CA9279"></span>
+        <span class="swatch__name">Terracota Claro</span>
+      </div>
+      <div class="swatch">
+        <span class="swatch__circle" style="background:#E4C58F"></span>
+        <span class="swatch__name">Amarelo Manteiga</span>
+      </div>
+      <div class="swatch">
+        <span class="swatch__circle" style="background:#D6A968"></span>
+        <span class="swatch__name">Mostarda Suave</span>
+      </div>
+      <div class="swatch">
+        <span class="swatch__circle" style="background:#7F5147"></span>
+        <span class="swatch__name">Vinho Claro</span>
+      </div>
+      <div class="swatch">
+        <span class="swatch__circle" style="background:#BFB8AE"></span>
+        <span class="swatch__name">Cinza Claro</span>
+      </div>
+      <div class="swatch">
+        <span class="swatch__circle" style="background:#615E59"></span>
+        <span class="swatch__name">Grafite Suave</span>
+      </div>
     </div>
-    <p class="dresscode__paletteLabels reveal">Verde Sálvia · Verde Oliva Claro · Azul Sereno · Azul Acinzentado · Lilás Suave · Rosa Queimado · Terracota Claro · Amarelo Manteiga · Mostarda Suave · Vinho Claro · Cinza Claro · Grafite Suave</p>
 
     <div class="dresscode__cards reveal">
       <div class="dresscode__card">
