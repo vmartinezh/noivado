@@ -241,6 +241,24 @@ button{font-family:inherit;border:none;background:none;cursor:pointer;color:inhe
 .lightbox__img{display:none;width:100%;aspect-ratio:4/5;object-fit:cover}
 .lightbox__close{position:absolute;top:1.5rem;right:1.7rem;font-size:.75rem;letter-spacing:.14em;text-transform:uppercase;color:var(--bg);border-bottom:1px solid rgba(244,234,222,.5);padding-bottom:2px}
 
+/* ---------- música ---------- */
+.music-toggle{
+  position:fixed;right:1.4rem;bottom:1.4rem;z-index:150;
+  display:flex;align-items:center;gap:.5rem;
+  background:var(--ink);color:var(--bg);
+  font-family:var(--font-body);font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;
+  padding:.75rem 1.15rem;border-radius:30px;
+  box-shadow:0 10px 24px -10px rgba(71,35,17,.55);
+  transition:transform .3s var(--ease),opacity .3s var(--ease);
+}
+.music-toggle:hover{transform:translateY(-2px)}
+.music-toggle__icon{font-size:.95rem;font-style:italic;font-family:var(--font-title)}
+.music-toggle[aria-pressed="false"]{opacity:.65}
+@media (max-width:480px){
+  .music-toggle__label{display:none}
+  .music-toggle{padding:.75rem;width:44px;height:44px;justify-content:center}
+}
+
 /* ---------- responsivo ---------- */
 @media (min-width:901px){
   .dresscode__palette{flex-wrap:nowrap;gap:.7rem}
@@ -660,6 +678,13 @@ button{font-family:inherit;border:none;background:none;cursor:pointer;color:inhe
   <p class="footer__meta">05 Setembro 2026 · Belém — Pará</p>
 </footer>
 
+<!-- MÚSICA -->
+<audio id="bgMusic" src="assets/youre-still-the-one.mp3" loop preload="auto"></audio>
+<button type="button" class="music-toggle" id="musicToggle" aria-pressed="true">
+  <span class="music-toggle__icon">♪</span>
+  <span class="music-toggle__label">Pausar música</span>
+</button>
+
 <!-- LIGHTBOX -->
 <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Visualização de foto" hidden>
   <button type="button" class="lightbox__close" id="lightboxClose">Fechar</button>
@@ -678,9 +703,30 @@ var enterBtn=document.getElementById('enterBtn');
 var body=document.body;
 body.classList.add('no-scroll');
 
+var bgMusic=document.getElementById('bgMusic');
+var musicToggle=document.getElementById('musicToggle');
+var musicLabel=musicToggle?musicToggle.querySelector('.music-toggle__label'):null;
+
+function updateMusicToggle(){
+  if(!musicToggle) return;
+  var playing=bgMusic&&!bgMusic.paused;
+  musicToggle.setAttribute('aria-pressed', playing?'true':'false');
+  if(musicLabel) musicLabel.textContent=playing?'Pausar música':'Tocar música';
+}
+if(bgMusic){
+  bgMusic.addEventListener('play', updateMusicToggle);
+  bgMusic.addEventListener('pause', updateMusicToggle);
+}
+if(musicToggle) musicToggle.addEventListener('click', function(){
+  if(!bgMusic) return;
+  if(bgMusic.paused) bgMusic.play().catch(function(){});
+  else bgMusic.pause();
+});
+
 function enterSite(){
   cover.classList.add('is-hidden');
   body.classList.remove('no-scroll');
+  if(bgMusic) bgMusic.play().catch(function(){});
 }
 if(enterBtn) enterBtn.addEventListener('click', enterSite);
 cover.addEventListener('wheel', function(e){ if(e.deltaY>12) enterSite(); }, {passive:true});
