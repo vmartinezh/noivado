@@ -167,6 +167,30 @@ button{font-family:inherit;border:none;background:none;cursor:pointer;color:inhe
 .info__card p{font-size:1.15rem;color:var(--ink)}
 .info__mapsBtn{margin-top:1rem;display:inline-flex}
 
+/* ---------- confirmação (rsvp) ---------- */
+.rsvp{text-align:center}
+.rsvp__form{max-width:480px;margin:0 auto;text-align:left}
+.rsvp__guest{position:relative}
+.rsvp__field{margin-bottom:1.5rem}
+.rsvp__field label{display:block;font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:.5rem}
+.rsvp__field input[type="text"]{width:100%;border:none;border-bottom:1px solid var(--line-strong);background:transparent;padding:.6rem 1.6rem .6rem .1rem;font-family:var(--font-body);font-size:1rem;color:var(--ink);border-radius:0}
+.rsvp__field input[type="text"]:focus{outline:none;border-color:var(--accent)}
+.rsvp__remove{position:absolute;right:0;top:0;font-size:.66rem;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-faint);padding:.3rem}
+.rsvp__addBtn{display:inline-flex;align-items:center;gap:.4rem;font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink);border-bottom:1px solid var(--line-strong);padding-bottom:2px;margin-bottom:2.2rem;transition:border-color .3s var(--ease)}
+.rsvp__addBtn:hover{border-color:var(--ink)}
+.rsvp__addBtn:disabled{opacity:.4;cursor:not-allowed}
+.rsvp__choiceLabel{display:block;font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:.8rem;text-align:center}
+.rsvp__choice{display:flex;gap:.8rem;margin-bottom:2.2rem}
+.rsvp__choiceBtn{flex:1;padding:.9rem .6rem;border:1px solid var(--line-strong);background:var(--card);font-size:.76rem;letter-spacing:.08em;text-transform:uppercase;color:var(--ink);transition:background .3s var(--ease),color .3s var(--ease),border-color .3s var(--ease)}
+.rsvp__choiceBtn.is-active{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.rsvp__submitBtn{width:100%;font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;color:var(--bg);background:var(--ink);padding:1.05rem;border:none;transition:background .3s var(--ease)}
+.rsvp__submitBtn:hover{background:var(--accent)}
+.rsvp__submitBtn:disabled{opacity:.55;cursor:not-allowed}
+.rsvp__status{margin-top:1.3rem;font-size:.9rem;color:var(--ink-soft);text-align:center;min-height:1.4em}
+.rsvp__status.is-error{color:#a3392a}
+.rsvp__whatsappBtn{display:flex;justify-content:center;align-items:center;gap:.5rem;margin-top:1rem;width:100%;padding:.95rem;border:1px solid var(--line-strong);font-size:.76rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink);transition:border-color .3s var(--ease)}
+.rsvp__whatsappBtn:hover{border-color:var(--ink)}
+
 /* ---------- dress code ---------- */
 .dresscode{text-align:center}
 .dresscode__palette{display:flex;flex-wrap:wrap;justify-content:center;gap:1.5rem 1.1rem;margin-bottom:2.6rem}
@@ -319,6 +343,7 @@ button{font-family:inherit;border:none;background:none;cursor:pointer;color:inhe
       <a href="#dresscode">Dress Code</a>
       <a href="#presentes">Presentes</a>
       <a href="#faq">FAQ</a>
+      <a href="#confirmacao">Confirmação</a>
       <!-- <a href="#playlist">Playlist</a> -->
     </nav>
   </div>
@@ -649,6 +674,34 @@ button{font-family:inherit;border:none;background:none;cursor:pointer;color:inhe
     </div>
   </section>
 
+  <!-- CONFIRMAÇÃO -->
+  <section class="section rsvp" id="confirmacao">
+    <div class="section__head section__head--center">
+      <h2 class="section__title reveal">Confirme sua Presença</h2>
+    </div>
+    <form class="rsvp__form reveal" id="rsvpForm" novalidate>
+      <div class="rsvp__guests" id="rsvpGuests">
+        <div class="rsvp__guest" data-guest="1">
+          <div class="rsvp__field">
+            <label for="rsvpGuest1">Nome e sobrenome 1</label>
+            <input type="text" id="rsvpGuest1" name="convidado1" placeholder="Seu nome completo" required>
+          </div>
+        </div>
+      </div>
+      <button type="button" class="rsvp__addBtn" id="rsvpAddGuest">+ Adicionar outro convidado</button>
+
+      <span class="rsvp__choiceLabel">Poderão comparecer?</span>
+      <div class="rsvp__choice" id="rsvpChoice">
+        <button type="button" class="rsvp__choiceBtn" data-value="Sim">Sim, estaremos lá</button>
+        <button type="button" class="rsvp__choiceBtn" data-value="Não">Não poderemos ir</button>
+      </div>
+
+      <button type="submit" class="rsvp__submitBtn" id="rsvpSubmit">Enviar confirmação</button>
+      <p class="rsvp__status" id="rsvpStatus" role="status" aria-live="polite"></p>
+      <a class="rsvp__whatsappBtn" id="rsvpWhatsapp" href="#" target="_blank" rel="noopener" hidden>Confirmar também por WhatsApp</a>
+    </form>
+  </section>
+
   <!-- INSTAGRAM -->
   <section class="section instagram section--tight" id="instagram">
     <p class="eyebrow reveal">Compartilhe esse momento</p>
@@ -848,6 +901,133 @@ if(lightboxClose) lightboxClose.addEventListener('click', closeLightbox);
 if(lightbox) lightbox.addEventListener('click', function(e){ if(e.target===lightbox) closeLightbox(); });
 document.addEventListener('keydown', function(e){
   if(e.key==='Escape' && lightbox && lightbox.classList.contains('is-open')) closeLightbox();
+});
+
+/* ---------- RSVP ---------- */
+var RSVP_FORMSPREE_ENDPOINT='https://formspree.io/f/meebnqdv';
+var RSVP_WHATSAPP_NUMBER='5591988350198';
+
+var rsvpForm=document.getElementById('rsvpForm');
+var rsvpGuests=document.getElementById('rsvpGuests');
+var rsvpAddGuest=document.getElementById('rsvpAddGuest');
+var rsvpChoice=document.getElementById('rsvpChoice');
+var rsvpSubmit=document.getElementById('rsvpSubmit');
+var rsvpStatus=document.getElementById('rsvpStatus');
+var rsvpWhatsapp=document.getElementById('rsvpWhatsapp');
+var rsvpMaxGuests=4;
+var rsvpGuestCount=1;
+var rsvpConfirmValue='';
+
+function rsvpUpdateAddButton(){
+  if(!rsvpAddGuest) return;
+  var atMax=rsvpGuestCount>=rsvpMaxGuests;
+  rsvpAddGuest.disabled=atMax;
+  rsvpAddGuest.textContent=atMax?'Máximo de 4 convidados':'+ Adicionar outro convidado';
+}
+
+function rsvpRenumberGuests(){
+  var items=rsvpGuests.querySelectorAll('.rsvp__guest');
+  items.forEach(function(item, idx){
+    var n=idx+1;
+    item.setAttribute('data-guest', n);
+    var label=item.querySelector('label');
+    var input=item.querySelector('input');
+    if(label){ label.textContent='Nome e sobrenome '+n; label.setAttribute('for','rsvpGuest'+n); }
+    if(input){ input.id='rsvpGuest'+n; input.name='convidado'+n; }
+  });
+  rsvpGuestCount=items.length;
+}
+
+if(rsvpAddGuest) rsvpAddGuest.addEventListener('click', function(){
+  if(rsvpGuestCount>=rsvpMaxGuests) return;
+  rsvpGuestCount++;
+  var n=rsvpGuestCount;
+  var wrap=document.createElement('div');
+  wrap.className='rsvp__guest';
+  wrap.setAttribute('data-guest', n);
+  wrap.innerHTML='<div class="rsvp__field">'+
+    '<label for="rsvpGuest'+n+'">Nome e sobrenome '+n+'</label>'+
+    '<input type="text" id="rsvpGuest'+n+'" name="convidado'+n+'" placeholder="Nome completo">'+
+    '<button type="button" class="rsvp__remove">Remover</button>'+
+  '</div>';
+  rsvpGuests.appendChild(wrap);
+  wrap.querySelector('.rsvp__remove').addEventListener('click', function(){
+    wrap.remove();
+    rsvpRenumberGuests();
+    rsvpUpdateAddButton();
+  });
+  rsvpUpdateAddButton();
+});
+
+if(rsvpChoice){
+  var rsvpChoiceBtns=rsvpChoice.querySelectorAll('.rsvp__choiceBtn');
+  rsvpChoiceBtns.forEach(function(btn){
+    btn.addEventListener('click', function(){
+      rsvpChoiceBtns.forEach(function(b){ b.classList.remove('is-active'); });
+      btn.classList.add('is-active');
+      rsvpConfirmValue=btn.getAttribute('data-value');
+    });
+  });
+}
+
+if(rsvpForm) rsvpForm.addEventListener('submit', function(e){
+  e.preventDefault();
+  rsvpStatus.classList.remove('is-error');
+  rsvpStatus.textContent='';
+  rsvpWhatsapp.hidden=true;
+
+  var names=[];
+  rsvpGuests.querySelectorAll('input[type="text"]').forEach(function(inp){
+    if(inp.value.trim()) names.push(inp.value.trim());
+  });
+
+  if(names.length===0){
+    rsvpStatus.textContent='Por favor, preencha ao menos um nome.';
+    rsvpStatus.classList.add('is-error');
+    return;
+  }
+  if(!rsvpConfirmValue){
+    rsvpStatus.textContent='Por favor, selecione se poderão comparecer.';
+    rsvpStatus.classList.add('is-error');
+    return;
+  }
+
+  var summary=names.map(function(n,i){ return (i+1)+'. '+n; }).join('\n');
+  var message='Confirmação de presença - Vicente & Rayssa\n\nConvidados:\n'+summary+'\n\nPresença: '+rsvpConfirmValue;
+  var waLink='https://wa.me/'+RSVP_WHATSAPP_NUMBER+'?text='+encodeURIComponent(message);
+
+  rsvpSubmit.disabled=true;
+  rsvpSubmit.textContent='Enviando...';
+
+  var formData=new FormData();
+  names.forEach(function(n,i){ formData.append('convidado'+(i+1), n); });
+  formData.append('confirmacao', rsvpConfirmValue);
+  formData.append('resumo', message);
+
+  fetch(RSVP_FORMSPREE_ENDPOINT, {
+    method:'POST',
+    headers:{ 'Accept':'application/json' },
+    body: formData
+  }).then(function(res){
+    if(!res.ok) throw new Error('Formspree error');
+    rsvpStatus.textContent = rsvpConfirmValue==='Sim'
+      ? 'Presença confirmada! Mal podemos esperar para celebrar com vocês.'
+      : 'Obrigado por avisar! Sentiremos sua falta.';
+    rsvpWhatsapp.href=waLink;
+    rsvpWhatsapp.hidden=false;
+    try{ window.open(waLink, '_blank'); }catch(err){}
+    rsvpForm.reset();
+    if(rsvpChoice) rsvpChoice.querySelectorAll('.rsvp__choiceBtn').forEach(function(b){ b.classList.remove('is-active'); });
+    rsvpConfirmValue='';
+  }).catch(function(){
+    rsvpStatus.textContent='Não foi possível enviar agora. Tente novamente ou confirme direto pelo WhatsApp abaixo.';
+    rsvpStatus.classList.add('is-error');
+    rsvpWhatsapp.href=waLink;
+    rsvpWhatsapp.hidden=false;
+  }).finally(function(){
+    rsvpSubmit.disabled=false;
+    rsvpSubmit.textContent='Enviar confirmação';
+  });
 });
 
 })();
