@@ -188,8 +188,6 @@ button{font-family:inherit;border:none;background:none;cursor:pointer;color:inhe
 .rsvp__submitBtn:disabled{opacity:.55;cursor:not-allowed}
 .rsvp__status{margin-top:1.3rem;font-size:.9rem;color:var(--ink-soft);text-align:center;min-height:1.4em}
 .rsvp__status.is-error{color:#a3392a}
-.rsvp__whatsappBtn{display:flex;justify-content:center;align-items:center;gap:.5rem;margin-top:1rem;width:100%;padding:.95rem;border:1px solid var(--line-strong);font-size:.76rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink);transition:border-color .3s var(--ease)}
-.rsvp__whatsappBtn:hover{border-color:var(--ink)}
 
 /* ---------- dress code ---------- */
 .dresscode{text-align:center}
@@ -698,7 +696,6 @@ button{font-family:inherit;border:none;background:none;cursor:pointer;color:inhe
 
       <button type="submit" class="rsvp__submitBtn" id="rsvpSubmit">Enviar confirmação</button>
       <p class="rsvp__status" id="rsvpStatus" role="status" aria-live="polite"></p>
-      <a class="rsvp__whatsappBtn" id="rsvpWhatsapp" href="#" target="_blank" rel="noopener" hidden>Confirmar também por WhatsApp</a>
     </form>
   </section>
 
@@ -913,7 +910,6 @@ var rsvpAddGuest=document.getElementById('rsvpAddGuest');
 var rsvpChoice=document.getElementById('rsvpChoice');
 var rsvpSubmit=document.getElementById('rsvpSubmit');
 var rsvpStatus=document.getElementById('rsvpStatus');
-var rsvpWhatsapp=document.getElementById('rsvpWhatsapp');
 var rsvpMaxGuests=4;
 var rsvpGuestCount=1;
 var rsvpConfirmValue='';
@@ -974,7 +970,6 @@ if(rsvpForm) rsvpForm.addEventListener('submit', function(e){
   e.preventDefault();
   rsvpStatus.classList.remove('is-error');
   rsvpStatus.textContent='';
-  rsvpWhatsapp.hidden=true;
 
   var names=[];
   rsvpGuests.querySelectorAll('input[type="text"]').forEach(function(inp){
@@ -1013,17 +1008,14 @@ if(rsvpForm) rsvpForm.addEventListener('submit', function(e){
     rsvpStatus.textContent = rsvpConfirmValue==='Sim'
       ? 'Presença confirmada! Mal podemos esperar para celebrar com vocês.'
       : 'Obrigado por avisar! Sentiremos sua falta.';
-    rsvpWhatsapp.href=waLink;
-    rsvpWhatsapp.hidden=false;
     try{ window.open(waLink, '_blank'); }catch(err){}
     rsvpForm.reset();
     if(rsvpChoice) rsvpChoice.querySelectorAll('.rsvp__choiceBtn').forEach(function(b){ b.classList.remove('is-active'); });
     rsvpConfirmValue='';
   }).catch(function(){
-    rsvpStatus.textContent='Não foi possível enviar agora. Tente novamente ou confirme direto pelo WhatsApp abaixo.';
+    rsvpStatus.textContent='Não foi possível enviar agora. Tente novamente ou fale com a gente pelo WhatsApp.';
     rsvpStatus.classList.add('is-error');
-    rsvpWhatsapp.href=waLink;
-    rsvpWhatsapp.hidden=false;
+    try{ window.open(waLink, '_blank'); }catch(err){}
   }).finally(function(){
     rsvpSubmit.disabled=false;
     rsvpSubmit.textContent='Enviar confirmação';
