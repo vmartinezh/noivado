@@ -238,6 +238,7 @@ button{font-family:inherit;border:none;background:none;cursor:pointer;color:inhe
 .lightbox.is-open{opacity:1;visibility:visible}
 .lightbox__stage{max-width:520px;width:100%}
 .lightbox__stage .ph{aspect-ratio:4/5;background:rgba(244,234,222,.12);color:var(--bg)}
+.lightbox__img{display:none;width:100%;aspect-ratio:4/5;object-fit:cover}
 .lightbox__close{position:absolute;top:1.5rem;right:1.7rem;font-size:.75rem;letter-spacing:.14em;text-transform:uppercase;color:var(--bg);border-bottom:1px solid rgba(244,234,222,.5);padding-bottom:2px}
 
 /* ---------- responsivo ---------- */
@@ -539,10 +540,10 @@ button{font-family:inherit;border:none;background:none;cursor:pointer;color:inhe
       <h2 class="section__title reveal">Galeria</h2>
     </div>
     <div class="gallery__grid" id="galleryGrid">
-      <button type="button" class="gallery__item reveal" data-caption="Nosso primeiro encontro"><span class="ph">Foto 1</span></button>
-      <button type="button" class="gallery__item reveal" data-caption="Viagem ao Chile"><span class="ph">Foto 2</span></button>
-      <button type="button" class="gallery__item reveal" data-caption="Viagem ao Brasil"><span class="ph">Foto 3</span></button>
-      <button type="button" class="gallery__item reveal" data-caption="O pedido"><span class="ph">Foto 4</span></button>
+      <button type="button" class="gallery__item reveal" data-caption="Nosso primeiro encontro"><span class="ph"><img src="assets/photo_1.jpg" alt="Nosso primeiro encontro" style="width:100%;height:100%;object-fit:cover"></span></button>
+      <button type="button" class="gallery__item reveal" data-caption="Viagem ao Chile"><span class="ph"><img src="assets/photo_2.jpg" alt="Viagem ao Chile" style="width:100%;height:100%;object-fit:cover"></span></button>
+      <button type="button" class="gallery__item reveal" data-caption="Viagem ao Brasil"><span class="ph"><img src="assets/photo_3.jpg" alt="Viagem ao Brasil" style="width:100%;height:100%;object-fit:cover"></span></button>
+      <button type="button" class="gallery__item reveal" data-caption="O pedido"><span class="ph"><img src="assets/photo_4.jpg" alt="O pedido" style="width:100%;height:100%;object-fit:cover"></span></button>
     </div>
   </section>
 
@@ -662,7 +663,10 @@ button{font-family:inherit;border:none;background:none;cursor:pointer;color:inhe
 <!-- LIGHTBOX -->
 <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Visualização de foto" hidden>
   <button type="button" class="lightbox__close" id="lightboxClose">Fechar</button>
-  <div class="lightbox__stage"><div class="ph" id="lightboxCaption">Foto</div></div>
+  <div class="lightbox__stage">
+    <img class="lightbox__img" id="lightboxImg" alt="">
+    <div class="ph" id="lightboxCaption">Foto</div>
+  </div>
 </div>
 
 <script>
@@ -762,11 +766,21 @@ var galleryItems=document.querySelectorAll('.gallery__item');
 var lightbox=document.getElementById('lightbox');
 var lightboxClose=document.getElementById('lightboxClose');
 var lightboxCaption=document.getElementById('lightboxCaption');
+var lightboxImg=document.getElementById('lightboxImg');
 var lastFocused=null;
 
-function openLightbox(caption){
+function openLightbox(caption, imgSrc){
   lastFocused=document.activeElement;
-  lightboxCaption.textContent=caption||'Foto';
+  if(imgSrc){
+    lightboxImg.src=imgSrc;
+    lightboxImg.alt=caption||'Foto';
+    lightboxImg.style.display='block';
+    lightboxCaption.style.display='none';
+  }else{
+    lightboxImg.style.display='none';
+    lightboxCaption.style.display='flex';
+    lightboxCaption.textContent=caption||'Foto';
+  }
   lightbox.hidden=false;
   requestAnimationFrame(function(){ lightbox.classList.add('is-open'); });
   lightboxClose.focus();
@@ -779,7 +793,10 @@ function closeLightbox(){
   if(lastFocused) lastFocused.focus();
 }
 galleryItems.forEach(function(item){
-  item.addEventListener('click', function(){ openLightbox(item.getAttribute('data-caption')); });
+  item.addEventListener('click', function(){
+    var img=item.querySelector('img');
+    openLightbox(item.getAttribute('data-caption'), img?img.src:null);
+  });
 });
 if(lightboxClose) lightboxClose.addEventListener('click', closeLightbox);
 if(lightbox) lightbox.addEventListener('click', function(e){ if(e.target===lightbox) closeLightbox(); });
