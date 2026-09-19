@@ -239,6 +239,7 @@ button{font-family:inherit;border:none;background:none;cursor:pointer;color:inhe
 .transfer-row__value{display:block;color:var(--ink);font-size:.92rem;overflow-wrap:anywhere}
 .transfer-copy{flex-shrink:0;padding:.45rem .7rem;border:1px solid var(--line-strong);color:var(--ink);font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;transition:background .25s var(--ease),color .25s var(--ease),border-color .25s var(--ease)}
 .transfer-copy:hover,.transfer-copy.is-copied{background:var(--ink);border-color:var(--ink);color:var(--bg)}
+.transfer-copy--all{width:100%;margin-top:1rem;padding:.8rem}
 .gifts__items{display:grid;grid-template-columns:repeat(3,1fr);gap:1.8rem;margin-bottom:3rem}
 .gift{position:relative;background:var(--card);border:1px solid var(--line-strong);border-radius:22px;padding:1.9rem 1.3rem 1.6rem;text-align:center;display:flex;flex-direction:column;align-items:center;transition:transform .35s var(--ease),box-shadow .35s var(--ease)}
 .gift:hover{transform:translateY(-4px);box-shadow:0 14px 28px -18px rgba(71,35,17,.35)}
@@ -629,63 +630,79 @@ button{font-family:inherit;border:none;background:none;cursor:pointer;color:inhe
       <p class="transfer-box__intro" id="transferIntro">Copie os dados diretamente para o aplicativo do seu banco.</p>
       <div class="transfer-row">
         <div class="transfer-row__content">
-          <span class="transfer-row__label" id="transferBankLabel">Banco</span>
-          <span class="transfer-row__value" id="transferBankValue">[seu banco]</span>
-        </div>
-        <button type="button" class="transfer-copy" data-copy-target="transferBankValue">Copiar</button>
-      </div>
-      <div class="transfer-row">
-        <div class="transfer-row__content">
-          <span class="transfer-row__label" id="transferAccountLabel">Conta</span>
-          <span class="transfer-row__value" id="transferAccountValue">[número da conta]</span>
-        </div>
-        <button type="button" class="transfer-copy" data-copy-target="transferAccountValue">Copiar</button>
-      </div>
-      <div class="transfer-row">
-        <div class="transfer-row__content">
           <span class="transfer-row__label" id="transferNameLabel">Titular</span>
-          <span class="transfer-row__value" id="transferNameValue">[titular]</span>
+          <span class="transfer-row__value" id="transferNameValue">Vicente Fernando Martinez Higuera</span>
         </div>
-        <button type="button" class="transfer-copy" data-copy-target="transferNameValue">Copiar</button>
       </div>
+      <div class="transfer-row">
+        <div class="transfer-row__content">
+          <span class="transfer-row__label" id="transferRutLabel">RUT</span>
+          <span class="transfer-row__value" id="transferRutValue">20.219.013-8</span>
+        </div>
+      </div>
+      <div class="transfer-row">
+        <div class="transfer-row__content">
+          <span class="transfer-row__label" id="transferBankLabel">Banco</span>
+          <span class="transfer-row__value" id="transferBankValue">Banco Santander</span>
+        </div>
+      </div>
+      <div class="transfer-row">
+        <div class="transfer-row__content">
+          <span class="transfer-row__label" id="transferTypeLabel">Tipo de cuenta</span>
+          <span class="transfer-row__value" id="transferTypeValue">Cuenta Corriente</span>
+        </div>
+      </div>
+      <div class="transfer-row">
+        <div class="transfer-row__content">
+          <span class="transfer-row__label" id="transferAccountLabel">Número de cuenta</span>
+          <span class="transfer-row__value" id="transferAccountValue">0 000 74 28163 0</span>
+        </div>
+      </div>
+      <div class="transfer-row">
+        <div class="transfer-row__content">
+          <span class="transfer-row__label" id="transferEmailLabel">Correo electrónico</span>
+          <span class="transfer-row__value" id="transferEmailValue">vicentemartinez2131@gmail.com</span>
+        </div>
+      </div>
+      <button type="button" class="transfer-copy transfer-copy--all" id="transferCopyAll">Copiar datos de transferencia</button>
     </div>
 
     <div class="gifts__items reveal">
       <div class="gift">
         <img class="gift__img" src="assets/gift-mala.png.png" alt="Mala dos Sonhos">
-        <h3 class="gift__title">Mala dos Sonhos</h3>
-        <p class="gift__desc">Cada amor tem uma história. A nossa também vai na mala.</p>
-        <span class="gift__price">R$ 120,00</span>
+        <h3 class="gift__title" id="giftTitle1">Uma Rodada de Caipirinha</h3>
+        <p class="gift__desc" id="giftDesc1">Porque casar dá sede e comemorar faz parte!</p>
+        <span class="gift__price" id="giftPrice1">R$ 120,00</span>
       </div>
       <div class="gift">
         <img class="gift__img" src="assets/gift-vinho.png.png" alt="Vinho Chileno">
-        <h3 class="gift__title">Vinho Chileno</h3>
-        <p class="gift__desc">Um brinde ao amor, ao Chile e às longas conversas a dois.</p>
-        <span class="gift__price">R$ 150,00</span>
+        <h3 class="gift__title" id="giftTitle2">👶 Patrocine Nosso Futuro Herdeiro</h3>
+        <p class="gift__desc" id="giftDesc2">Ele ainda nem chegou, mas já estamos pensando nas despesas.</p>
+        <span class="gift__price" id="giftPrice2">R$ 150,00</span>
       </div>
       <div class="gift">
         <img class="gift__img" src="assets/gift-milhas.png.png" alt="Milhas do Amor">
-        <h3 class="gift__title">Milhas do Amor</h3>
-        <p class="gift__desc">Cada gesto aproxima nosso amor do próximo destino.</p>
-        <span class="gift__price">R$ 180,00</span>
+        <h3 class="gift__title" id="giftTitle3">🌊 Rio, Vamos Nós!</h3>
+        <p class="gift__desc" id="giftDesc3">Uma escapadinha para celebrar o amor e começar essa nova aventura.</p>
+        <span class="gift__price" id="giftPrice3">R$ 180,00</span>
       </div>
       <div class="gift">
         <img class="gift__img" src="assets/gift-cordilheira.png.png" alt="Cordilheira do Amor">
         <h3 class="gift__title">Cordilheira do Amor</h3>
         <p class="gift__desc">Nosso amor atravessou fronteiras, e agora atravessa a cordilheira.</p>
-        <span class="gift__price">R$ 200,00</span>
+        <span class="gift__price" id="giftPrice4">R$ 200,00</span>
       </div>
       <div class="gift">
         <img class="gift__img gift__img--cover" src="assets/gift-passagem.png.png" alt="Passagem dos Noivos">
         <h3 class="gift__title">Passagem dos Noivos</h3>
         <p class="gift__desc">Embarque para o maior capítulo da nossa história.</p>
-        <span class="gift__price">R$ 230,00</span>
+        <span class="gift__price" id="giftPrice5">R$ 230,00</span>
       </div>
       <div class="gift">
         <img class="gift__img" src="assets/gift-chile.png.png" alt="Chile, Allá Vamos!">
         <h3 class="gift__title">Chile, Allá Vamos!</h3>
         <p class="gift__desc">Nosso casamento é no Chile. Nossa gratidão vem de qualquer lugar do mundo.</p>
-        <span class="gift__price">R$ 280,00</span>
+        <span class="gift__price" id="giftPrice6">R$ 280,00</span>
       </div>
     </div>
   </section>
@@ -849,7 +866,7 @@ var translations={
     infoDateLabel:'Data',
     infoDate:'05 Set 2026',
     infoTimeLabel:'Horário',
-    infoTime:'13h',
+    infoTime:'13:00 hrs',
     venueLabel:'Endereço',
     venueName:'Ponto de referência:<br />Próximo a La Dehesa, Santiago',
     mapsLabel:'Google Maps',
@@ -881,21 +898,30 @@ var translations={
     galleryTitle:'Galeria',
     giftsTitle:'Lista de presentes',
     giftsIntro:'Seu presente fará parte do começo da nossa nova jornada entre Brasil e Chile.',
+    giftTitles:['Uma Rodada de Caipirinha','👶 Patrocine Nosso Futuro Herdeiro','🌊 Rio, Vamos Nós!'],
+    giftDescs:['Porque casar dá sede e comemorar faz parte!','Ele ainda nem chegou, mas já estamos pensando nas despesas.','Uma escapadinha para celebrar o amor e começar essa nova aventura.'],
+    giftPrices:['R$ 120,00','R$ 150,00','R$ 180,00','R$ 200,00','R$ 230,00','R$ 280,00'],
     giftsNote:'Para contribuir para a nossa nova etapa, você pode nos ajudar com uma transferência. Cada presente continua sendo uma ideia, mas aqui deixamos nossos dados para apoiar a nossa vida juntos.',
     transferTitle:'Dados para transferência',
     transferIntro:'Copie os dados diretamente para o aplicativo do seu banco.',
-    transferBankLabel:'Banco',
-    transferBank:'[seu banco]',
-    transferAccountLabel:'Conta',
-    transferAccount:'[número da conta]',
     transferNameLabel:'Titular',
-    transferName:'[titular]',
-    transferCopy:'Copiar',
+    transferName:'Vicente Fernando Martinez Higuera',
+    transferRutLabel:'RUT',
+    transferRut:'20.219.013-8',
+    transferBankLabel:'Banco',
+    transferBank:'Banco Santander',
+    transferTypeLabel:'Tipo de conta',
+    transferType:'Conta Corrente',
+    transferAccountLabel:'Número da conta',
+    transferAccount:'0 000 74 28163 0',
+    transferEmailLabel:'E-mail',
+    transferEmail:'vicentemartinez2131@gmail.com',
+    transferCopy:'Copiar datos de transferência',
     transferCopied:'Copiado',
     faqEyebrow:'Dúvidas',
     faqTitle:'Perguntas Frequentes',
     faqQuestions:['Posso levar acompanhante?','Há estacionamento?','Até quando confirmar?','Teremos crianças?','Qual roupa devo usar?'],
-    faqAnswers:['Para mantermos a organização do evento, os convites são pessoais e destinados exclusivamente às pessoas nele indicadas. Agradecemos sua compreensão e carinho.','Não dispomos de estacionamento exclusivo. No entanto, há vagas disponíveis nas proximidades do local para maior comodidade dos nossos convidados.','Pedimos, por gentileza, que sua presença seja confirmada com até 30 dias de antecedência. Assim, poderemos preparar cada detalhe com todo o carinho.','Sim! As crianças da nossa família e dos nossos convidados são muito bem-vindas e farão parte deste momento tão especial.','Sugerimos o traje esporte casual, com roupas leves, confortáveis e elegantes. Para manter a harmonia da celebração, pedimos gentilmente que sejam evitadas peças nas cores branco, off-white, bege, areia e demais tons muito claros, reservados aos noivos.'],
+    faqAnswers:['Para mantermos a organização do evento, os convites são pessoais e destinados exclusivamente às pessoas nele indicadas. Agradecemos sua compreensão e carinho.','Sim, há estacionamento. Como o evento acontece dentro de um condomínio, precisamos que você nos informe a placa de cada veículo para autorizar a entrada.','Pedimos, por gentileza, que sua presença seja confirmada com até 30 dias de antecedência. Assim, poderemos preparar cada detalhe com todo o carinho.','Sim! As crianças da nossa família e dos nossos convidados são muito bem-vindas e farão parte deste momento tão especial.','Sugerimos o traje esporte casual, com roupas leves, confortáveis e elegantes. Para manter a harmonia da celebração, pedimos gentilmente que sejam evitadas peças nas cores branco, off-white, bege, areia e demais tons muito claros, reservados aos noivos.'],
     rsvpTitle:'Confirme sua Presença',
     rsvpAddGuest:'+ Adicionar outro convidado',
     rsvpChoiceLabel:'Poderão comparecer?',
@@ -920,7 +946,7 @@ var translations={
     infoDateLabel:'Fecha',
     infoDate:'03 Oct 2026',
     infoTimeLabel:'Horario',
-    infoTime:'13:00',
+    infoTime:'13:00 hrs',
     venueLabel:'Dirección',
     venueName:'Punto de referencia:<br />Cerca de La Dehesa, Santiago',
     mapsLabel:'Google Maps',
@@ -952,21 +978,30 @@ var translations={
     galleryTitle:'Galería',
     giftsTitle:'Lista de regalos',
     giftsIntro:'Tu regalo formará parte del comienzo de nuestro nuevo camino entre Brasil y Chile.',
+    giftTitles:['Una ronda de caipiriña','👶 Patrocina a nuestro futuro heredero','🌊 ¡Río, allá vamos!'],
+    giftDescs:['¡Porque casarse da sed y celebrar es parte de la fiesta!','Todavía ni llega, pero ya estamos pensando en los gastos.','Una escapada para celebrar el amor y comenzar esta nueva aventura.'],
+    giftPrices:['$20.000','$30.000','$40.000','$50.000','$60.000','$70.000'],
     giftsNote:'Para contribuir a nuestra nueva etapa, puedes ayudarnos con una transferencia. Cada regalo sigue siendo una idea, pero aquí dejamos nuestros datos para apoyar nuestra vida juntos.',
     transferTitle:'Datos para transferencia',
     transferIntro:'Copia los datos directamente en la aplicación de tu banco.',
-    transferBankLabel:'Banco',
-    transferBank:'[tu banco]',
-    transferAccountLabel:'Cuenta',
-    transferAccount:'[número de cuenta]',
     transferNameLabel:'Titular',
-    transferName:'[titular]',
-    transferCopy:'Copiar',
+    transferName:'Vicente Fernando Martinez Higuera',
+    transferRutLabel:'RUT',
+    transferRut:'20.219.013-8',
+    transferBankLabel:'Banco',
+    transferBank:'Banco Santander',
+    transferTypeLabel:'Tipo de cuenta',
+    transferType:'Cuenta Corriente',
+    transferAccountLabel:'Número de cuenta',
+    transferAccount:'0 000 74 28163 0',
+    transferEmailLabel:'Correo electrónico',
+    transferEmail:'vicentemartinez2131@gmail.com',
+    transferCopy:'Copiar datos de transferencia',
     transferCopied:'Copiado',
     faqEyebrow:'Dudas',
     faqTitle:'Preguntas Frecuentes',
     faqQuestions:['¿Puedo llevar acompañante?','¿Hay estacionamiento?','¿Hasta cuándo confirmar?','¿Habrá niños?','¿Qué ropa debo usar?'],
-    faqAnswers:['Para mantener la organización del evento, las invitaciones son personales y están destinadas exclusivamente a las personas indicadas en ellas. Gracias por su comprensión y cariño.','No contamos con estacionamiento exclusivo. Sin embargo, hay plazas disponibles cerca del lugar para mayor comodidad de nuestros invitados.','Pedimos, por favor, que su asistencia se confirme con hasta 30 días de anticipación. Así podremos preparar cada detalle con todo cariño.','¡Sí! Los niños de nuestra familia y de nuestros invitados son muy bienvenidos y formarán parte de este momento tan especial.','Sugerimos el traje casual deportivo, con ropa ligera, cómoda y elegante. Para mantener la armonía de la celebración, pedimos amablemente evitar prendas en tonos blanco, off-white, beige, arena y demás colores muy claros, reservados para los novios.'],
+    faqAnswers:['Para mantener la organización del evento, las invitaciones son personales y están destinadas exclusivamente a las personas indicadas en ellas. Gracias por su comprensión y cariño.','Sí, hay estacionamiento. Como el evento se realiza dentro de un condominio, necesitamos que nos confirmes la patente de cada vehículo para autorizar su ingreso.','Idealmente, confirma tu asistencia lo antes posible, ya que falta poco para la fecha. Así podremos preparar cada detalle con todo cariño.','¡Sí! Los niños de nuestra familia y de nuestros invitados son muy bienvenidos y formarán parte de este momento tan especial.','Te sugerimos tomar como inspiración las opciones del dress code y mantener ese estilo: ropa ligera, cómoda y elegante. Para mantener la armonía de la celebración, pedimos evitar prendas en tonos blanco, off-white, beige, arena y demás colores muy claros, reservados para los novios.'],
     rsvpTitle:'Confirma tu asistencia',
     rsvpAddGuest:'+ Agregar otro invitado',
     rsvpChoiceLabel:'¿Podrán asistir?',
@@ -1026,7 +1061,7 @@ function applyLanguage(lang){
 
   var venueText = document.getElementById('venueName').textContent.trim();
   if (lang === 'es' && venueText.indexOf('Santiago Centro') === -1) {
-    document.getElementById('venueName').innerHTML='Avenida La Dehesa 123<br />Santiago Centro';
+    document.getElementById('venueName').innerHTML='Parcelación Alto El Rosario';
   }
 
   document.getElementById('countLabel').textContent=current.countLabel;
@@ -1048,19 +1083,31 @@ function applyLanguage(lang){
 
   document.getElementById('giftsTitle').textContent=current.giftsTitle;
   document.getElementById('giftsIntro').textContent=current.giftsIntro;
+  current.giftTitles.forEach(function(title, index){
+    document.getElementById('giftTitle' + (index + 1)).textContent=title;
+    document.getElementById('giftDesc' + (index + 1)).textContent=current.giftDescs[index];
+  });
+  current.giftPrices.forEach(function(price, index){
+    document.getElementById('giftPrice' + (index + 1)).textContent=price;
+  });
   document.getElementById('giftsNote').textContent=current.giftsNote;
   document.getElementById('transferTitle').textContent=current.transferTitle;
   document.getElementById('transferIntro').textContent=current.transferIntro;
-  document.getElementById('transferBankLabel').textContent=current.transferBankLabel;
-  document.getElementById('transferBankValue').textContent=current.transferBank;
-  document.getElementById('transferAccountLabel').textContent=current.transferAccountLabel;
-  document.getElementById('transferAccountValue').textContent=current.transferAccount;
   document.getElementById('transferNameLabel').textContent=current.transferNameLabel;
   document.getElementById('transferNameValue').textContent=current.transferName;
-  document.querySelectorAll('.transfer-copy').forEach(function(button){
-    button.textContent=current.transferCopy;
-    button.classList.remove('is-copied');
-  });
+  document.getElementById('transferRutLabel').textContent=current.transferRutLabel;
+  document.getElementById('transferRutValue').textContent=current.transferRut;
+  document.getElementById('transferBankLabel').textContent=current.transferBankLabel;
+  document.getElementById('transferBankValue').textContent=current.transferBank;
+  document.getElementById('transferTypeLabel').textContent=current.transferTypeLabel;
+  document.getElementById('transferTypeValue').textContent=current.transferType;
+  document.getElementById('transferAccountLabel').textContent=current.transferAccountLabel;
+  document.getElementById('transferAccountValue').textContent=current.transferAccount;
+  document.getElementById('transferEmailLabel').textContent=current.transferEmailLabel;
+  document.getElementById('transferEmailValue').textContent=current.transferEmail;
+  var transferCopyButton=document.getElementById('transferCopyAll');
+  transferCopyButton.textContent=current.transferCopy;
+  transferCopyButton.classList.remove('is-copied');
 
   document.getElementById('faqEyebrow').textContent=current.faqEyebrow;
   document.getElementById('faqTitle').textContent=current.faqTitle;
@@ -1104,26 +1151,27 @@ if(langButtons.length){
 }
 applyLanguage('pt');
 
-document.querySelectorAll('.transfer-copy').forEach(function(button){
-  button.addEventListener('click', function(){
-    var value=document.getElementById(button.dataset.copyTarget).textContent;
-    var copyPromise=navigator.clipboard ? navigator.clipboard.writeText(value) : Promise.reject();
-    copyPromise.catch(function(){
-      var helper=document.createElement('textarea');
-      helper.value=value;
-      document.body.appendChild(helper);
-      helper.select();
-      document.execCommand('copy');
-      helper.remove();
-    }).finally(function(){
-      var current=translations[document.documentElement.lang==='es-CL'?'es':'pt'];
-      button.textContent=current.transferCopied;
-      button.classList.add('is-copied');
-      window.setTimeout(function(){
-        button.textContent=current.transferCopy;
-        button.classList.remove('is-copied');
-      }, 1600);
-    });
+document.getElementById('transferCopyAll').addEventListener('click', function(){
+  var button=this;
+  var value=['transferNameValue','transferRutValue','transferTypeValue','transferAccountValue','transferBankValue','transferEmailValue']
+    .map(function(id){ return document.getElementById(id).textContent; })
+    .join('\n');
+  var copyPromise=navigator.clipboard ? navigator.clipboard.writeText(value) : Promise.reject();
+  copyPromise.catch(function(){
+    var helper=document.createElement('textarea');
+    helper.value=value;
+    document.body.appendChild(helper);
+    helper.select();
+    document.execCommand('copy');
+    helper.remove();
+  }).finally(function(){
+    var current=translations[document.documentElement.lang==='es-CL'?'es':'pt'];
+    button.textContent=current.transferCopied;
+    button.classList.add('is-copied');
+    window.setTimeout(function(){
+      button.textContent=current.transferCopy;
+      button.classList.remove('is-copied');
+    }, 1600);
   });
 });
 
