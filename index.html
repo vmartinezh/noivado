@@ -1,15 +1,15 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="es-CL">
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
 <title>Vicente &amp; Rayssa — Nosso Noivado</title>
-<meta name="description" content="Vicente e Rayssa se noivam. Dois países, um único sonho. 05 de setembro de 2026, Belém - Pará." />
+<meta name="description" content="Vicente y Rayssa celebran su boda. Dos países, un único sueño. 03 de octubre de 2026, Santiago - Chile." />
 <meta name="theme-color" content="#472311" />
 <meta property="og:type" content="website" />
 <meta property="og:title" content="Vicente & Rayssa — Nosso Noivado" />
-<meta property="og:description" content="Dois países. Duas culturas. Um único sonho. 05 de setembro de 2026, Belém - Pará." />
-<meta property="og:locale" content="pt_BR" />
+<meta property="og:description" content="Dos países. Dos culturas. Un único sueño. 03 de octubre de 2026, Santiago - Chile." />
+<meta property="og:locale" content="es_CL" />
 <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -194,6 +194,7 @@ button{font-family:inherit;border:none;background:none;cursor:pointer;color:inhe
 .rsvp__choice{display:flex;gap:.8rem;margin-bottom:2.2rem}
 .rsvp__choiceBtn{flex:1;padding:.9rem .6rem;border:1px solid var(--line-strong);background:var(--card);font-size:.76rem;letter-spacing:.08em;text-transform:uppercase;color:var(--ink);transition:background .3s var(--ease),color .3s var(--ease),border-color .3s var(--ease)}
 .rsvp__choiceBtn.is-active{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.rsvp__vehicle{margin-top:.2rem}
 .rsvp__submitBtn{width:100%;font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;color:var(--bg);background:var(--ink);padding:1.05rem;border:none;transition:background .3s var(--ease)}
 .rsvp__submitBtn:hover{background:var(--accent)}
 .rsvp__submitBtn:disabled{opacity:.55;cursor:not-allowed}
@@ -345,10 +346,10 @@ button{font-family:inherit;border:none;background:none;cursor:pointer;color:inhe
 <section id="cover" class="cover" aria-label="Tela de boas-vindas">
   <div class="cover__content">
     <p class="cover__names"><span>Vicente</span><span class="cover__amp">&amp;</span><span>Rayssa</span></p>
-    <p class="cover__date" id="coverDate">05 Setembro 2026</p>
-    <p class="cover__place" id="coverPlace">Belém — Pará</p>
-    <p class="cover__welcome" id="coverWelcome">Bem-vindos ao nosso noivado</p>
-    <button type="button" id="enterBtn" class="cover__enter">Entrar</button>
+    <p class="cover__date" id="coverDate">03 de Octubre de 2026</p>
+    <p class="cover__place" id="coverPlace">Santiago — Chile</p>
+    <p class="cover__welcome" id="coverWelcome">Bienvenidos a nuestra boda</p>
+    <button type="button" id="enterBtn" class="cover__enter">Ingresar</button>
   </div>
 </section>
 
@@ -370,8 +371,8 @@ button{font-family:inherit;border:none;background:none;cursor:pointer;color:inhe
     </nav>
 
     <div class="lang-switcher" aria-label="Seleção de idioma" role="tablist">
-      <button type="button" class="lang-btn is-active" data-lang="pt" aria-pressed="true">PT · Brasil</button>
-      <button type="button" class="lang-btn" data-lang="es" aria-pressed="false">ES · Chile</button>
+      <button type="button" class="lang-btn" data-lang="pt" aria-pressed="false">PT · Brasil</button>
+      <button type="button" class="lang-btn is-active" data-lang="es" aria-pressed="true">ES · Chile</button>
     </div>
   </div>
 </header>
@@ -688,20 +689,20 @@ button{font-family:inherit;border:none;background:none;cursor:pointer;color:inhe
       </div>
       <div class="gift">
         <img class="gift__img" src="assets/gift-cordilheira.png.png" alt="Cordilheira do Amor">
-        <h3 class="gift__title">Cordilheira do Amor</h3>
-        <p class="gift__desc">Nosso amor atravessou fronteiras, e agora atravessa a cordilheira.</p>
+        <h3 class="gift__title" id="giftTitle4">Cordilheira do Amor</h3>
+        <p class="gift__desc" id="giftDesc4">Nosso amor atravessou fronteiras, e agora atravessa a cordilheira.</p>
         <span class="gift__price" id="giftPrice4">R$ 200,00</span>
       </div>
       <div class="gift">
         <img class="gift__img gift__img--cover" src="assets/gift-passagem.png.png" alt="Passagem dos Noivos">
-        <h3 class="gift__title">Passagem dos Noivos</h3>
-        <p class="gift__desc">Embarque para o maior capítulo da nossa história.</p>
+        <h3 class="gift__title" id="giftTitle5">Passagem dos Noivos</h3>
+        <p class="gift__desc" id="giftDesc5">Embarque para o maior capítulo da nossa história.</p>
         <span class="gift__price" id="giftPrice5">R$ 230,00</span>
       </div>
       <div class="gift">
         <img class="gift__img" src="assets/gift-chile.png.png" alt="Chile, Allá Vamos!">
-        <h3 class="gift__title">Chile, Allá Vamos!</h3>
-        <p class="gift__desc">Nosso casamento é no Chile. Nossa gratidão vem de qualquer lugar do mundo.</p>
+        <h3 class="gift__title" id="giftTitle6">Chile, Allá Vamos!</h3>
+        <p class="gift__desc" id="giftDesc6">Nosso casamento é no Chile. Nossa gratidão vem de qualquer lugar do mundo.</p>
         <span class="gift__price" id="giftPrice6">R$ 280,00</span>
       </div>
     </div>
@@ -757,6 +758,16 @@ button{font-family:inherit;border:none;background:none;cursor:pointer;color:inhe
       <div class="rsvp__choice" id="rsvpChoice">
         <button type="button" class="rsvp__choiceBtn" data-value="Sim">Sim, estaremos lá</button>
         <button type="button" class="rsvp__choiceBtn" data-value="Não">Não poderemos ir</button>
+      </div>
+
+      <span class="rsvp__choiceLabel" id="rsvpVehicleLabel">Você vai em carro particular?</span>
+      <div class="rsvp__choice rsvp__vehicle" id="rsvpVehicleChoice">
+        <button type="button" class="rsvp__choiceBtn" data-vehicle-value="Sim">Sim</button>
+        <button type="button" class="rsvp__choiceBtn" data-vehicle-value="Não">Não</button>
+      </div>
+      <div class="rsvp__field" id="rsvpPlateField" hidden>
+        <label for="rsvpPlate" id="rsvpPlateLabel">Placa do veículo</label>
+        <input type="text" id="rsvpPlate" name="patente" placeholder="Informe la patente del vehículo" autocomplete="off">
       </div>
 
       <button type="submit" class="rsvp__submitBtn" id="rsvpSubmit">Enviar confirmação</button>
@@ -923,10 +934,31 @@ var translations={
     faqQuestions:['Posso levar acompanhante?','Há estacionamento?','Até quando confirmar?','Teremos crianças?','Qual roupa devo usar?'],
     faqAnswers:['Para mantermos a organização do evento, os convites são pessoais e destinados exclusivamente às pessoas nele indicadas. Agradecemos sua compreensão e carinho.','Sim, há estacionamento. Como o evento acontece dentro de um condomínio, precisamos que você nos informe a placa de cada veículo para autorizar a entrada.','Pedimos, por gentileza, que sua presença seja confirmada com até 30 dias de antecedência. Assim, poderemos preparar cada detalhe com todo o carinho.','Sim! As crianças da nossa família e dos nossos convidados são muito bem-vindas e farão parte deste momento tão especial.','Sugerimos o traje esporte casual, com roupas leves, confortáveis e elegantes. Para manter a harmonia da celebração, pedimos gentilmente que sejam evitadas peças nas cores branco, off-white, bege, areia e demais tons muito claros, reservados aos noivos.'],
     rsvpTitle:'Confirme sua Presença',
+    rsvpGuestLabel:'Nome e sobrenome',
+    rsvpGuestPlaceholder:'Seu nome completo',
+    rsvpRemove:'Remover',
+    rsvpMaxGuests:'Máximo de 4 convidados',
     rsvpAddGuest:'+ Adicionar outro convidado',
     rsvpChoiceLabel:'Poderão comparecer?',
     rsvpOptions:['Sim, estaremos lá','Não poderemos ir'],
     rsvpSubmit:'Enviar confirmação',
+    rsvpValidationName:'Por favor, preencha ao menos um nome.',
+    rsvpValidationChoice:'Por favor, selecione se poderão comparecer.',
+    rsvpVehicleQuestion:'Você vai em carro particular?',
+    rsvpVehicleOptions:['Sim','Não'],
+    rsvpPlateLabel:'Placa do veículo',
+    rsvpPlatePlaceholder:'Informe a placa do veículo',
+    rsvpValidationVehicle:'Por favor, selecione se irão em carro particular.',
+    rsvpValidationPlate:'Por favor, informe a placa do veículo.',
+    rsvpSending:'Enviando...',
+    rsvpSuccessYes:'Presença confirmada! Mal podemos esperar para celebrar com vocês.',
+    rsvpSuccessNo:'Obrigado por avisar! Sentiremos sua falta.',
+    rsvpError:'Não foi possível enviar agora. Tente novamente ou fale com a gente pelo WhatsApp.',
+    rsvpMessageTitle:'Confirmação de presença',
+    rsvpMessageGuests:'Convidados:',
+    rsvpMessagePresence:'Presença:',
+    rsvpMessageVehicle:'Carro particular:',
+    rsvpMessagePlate:'Placa:',
     instagramEyebrow:'Compartilhe esse momento',
     instagramText:'Marque suas fotos com a nossa hashtag e ajude a construir a memória do nosso noivado.',
     footerQuote:'O amor não conhece fronteiras.<br />Obrigado por fazer parte da nossa história.',
@@ -934,12 +966,12 @@ var translations={
   },
   es:{
     nav:['Historia','Información','Dress Code','Regalos','FAQ','Confirmación'],
-    heroEyebrow:'Nuestro compromiso',
+    heroEyebrow:'Nuestra boda',
     heroQuote:'Dos países. Dos culturas.<br />Un único sueño.',
     heroLink:'Conoce los detalles',
     coverDate:'03 de Octubre de 2026',
     coverPlace:'Santiago — Chile',
-    coverWelcome:'Bienvenidos a nuestro compromiso',
+    coverWelcome:'Bienvenidos a nuestra boda',
     detailsEyebrow:'Detalles',
     infoTitle:'Información',
     infoIntro:'Queremos una reunión tranquila, llena de amor, buenas conversaciones y personas especiales.',
@@ -948,7 +980,7 @@ var translations={
     infoTimeLabel:'Horario',
     infoTime:'13:00 hrs',
     venueLabel:'Dirección',
-    venueName:'Punto de referencia:<br />Cerca de La Dehesa, Santiago',
+    venueName:'Parcelación Alto El Rosario, Padre Hurtado',
     mapsLabel:'Google Maps',
     mapsUrl:'https://maps.google.com/?q=-33.4167,-70.6067',
     historyEyebrow:'Nuestro recorrido',
@@ -958,8 +990,8 @@ var translations={
       {tag:'El sentimiento', title:'Nos enamoramos', text:'Entre mensajes y la distancia que insistía en separar dos países, el amor encontró su camino.'},
       {tag:'Primera travesía', title:'Primer viaje a Chile', text:'Rayssa cruzó fronteras por primera vez para conocer el país de Vicente y sintió que ese también podía ser su lugar.'},
       {tag:'Segunda travesía', title:'Vicente viaja a Brasil', text:'Fue el turno de Vicente de cruzar el océano rumbo a Belém para conocer las raíces de Rayssa y su familia.'},
-      {tag:'Hoy', title:'Nuestro compromiso', text:'La propuesta, el sí y ahora la certeza de que esta historia merece ser celebrada junto a quienes amamos.'},
-      {tag:'El próximo paso', title:'Nuestra boda', text:'Pronto llegará el día en que diremos sí para siempre, uniendo de una vez Chile y Brasil en una sola familia.'},
+      {tag:'05 de septiembre de 2026', title:'Nuestro compromiso', text:'En Brasil celebramos nuestro compromiso junto a nuestra familia y seres queridos. Ese día ya forma parte de nuestra historia.'},
+      {tag:'Hoy', title:'Nuestra boda', text:'Hoy celebramos el día en que diremos sí para siempre, uniendo Chile y Brasil en una sola familia.'},
       {tag:'El futuro', title:'Nuestra vida juntos', text:'Una nueva casa, un nuevo país para llamar hogar y la certeza de que, juntos, cualquier lugar puede ser el correcto.'}
     ],
     countLabel:'Faltan',
@@ -978,9 +1010,9 @@ var translations={
     galleryTitle:'Galería',
     giftsTitle:'Lista de regalos',
     giftsIntro:'Tu regalo formará parte del comienzo de nuestro nuevo camino entre Brasil y Chile.',
-    giftTitles:['Una ronda de caipiriña','👶 Patrocina a nuestro futuro heredero','🌊 ¡Río, allá vamos!'],
-    giftDescs:['¡Porque casarse da sed y celebrar es parte de la fiesta!','Todavía ni llega, pero ya estamos pensando en los gastos.','Una escapada para celebrar el amor y comenzar esta nueva aventura.'],
-    giftPrices:['$20.000','$30.000','$40.000','$50.000','$60.000','$70.000'],
+    giftTitles:['Una ronda de caipirinhas en Copacabana','Diccionario de supervivencia Chileno-Portugués','El tratado de paz para las eliminatorias del Mundial','Una buena chaqueta para que la novia no se congele','Clases intensivas de samba para el novio','Patrocina al próximo crack de la Selección'],
+    giftDescs:['Para tomárnoslas a la salud de ustedes con las patitas en la arena y olvidarnos del estrés de haber organizado este matrimonio.','Urgente. Para que el novio entienda qué es un "fofoqueiro" y ella aprenda a usar bien el "cachai" y el "al tiro" en el día a día.','Básicamente un fondo para comprar pizzas y chelas cuando juegue Chile contra Brasil, y así evitar el primer divorcio por culpa del fútbol.','Financiamiento directo para un buen "puffer jacket" gigante. Los inviernos de Santiago son duros y hay que salvarla del frío polar chileno.','Por el bien de la familia, el novio necesita dejar de bailar como un tinto congelado y aprender a mover la cadera al ritmo de Río de Janeiro.','Inversión a futuro para nuestro próximo hijo. Con genes brasileños pentacampeones y garra chilena, este niño o niña sí o sí viene a salvar al fútbol chileno del declive. ¡Apóyennos con la causa!'],
+    giftPrices:['$20.000','$30.000','$40.000','$50.000','$60.000','$80.000'],
     giftsNote:'Para contribuir a nuestra nueva etapa, puedes ayudarnos con una transferencia. Cada regalo sigue siendo una idea, pero aquí dejamos nuestros datos para apoyar nuestra vida juntos.',
     transferTitle:'Datos para transferencia',
     transferIntro:'Copia los datos directamente en la aplicación de tu banco.',
@@ -1001,12 +1033,33 @@ var translations={
     faqEyebrow:'Dudas',
     faqTitle:'Preguntas Frecuentes',
     faqQuestions:['¿Puedo llevar acompañante?','¿Hay estacionamiento?','¿Hasta cuándo confirmar?','¿Habrá niños?','¿Qué ropa debo usar?'],
-    faqAnswers:['Para mantener la organización del evento, las invitaciones son personales y están destinadas exclusivamente a las personas indicadas en ellas. Gracias por su comprensión y cariño.','Sí, hay estacionamiento. Como el evento se realiza dentro de un condominio, necesitamos que nos confirmes la patente de cada vehículo para autorizar su ingreso.','Idealmente, confirma tu asistencia lo antes posible, ya que falta poco para la fecha. Así podremos preparar cada detalle con todo cariño.','¡Sí! Los niños de nuestra familia y de nuestros invitados son muy bienvenidos y formarán parte de este momento tan especial.','Te sugerimos tomar como inspiración las opciones del dress code y mantener ese estilo: ropa ligera, cómoda y elegante. Para mantener la armonía de la celebración, pedimos evitar prendas en tonos blanco, off-white, beige, arena y demás colores muy claros, reservados para los novios.'],
+    faqAnswers:['Para mantener la correcta organización del evento, las invitaciones son personales y están destinadas a nuestros seres queridos. Si deseas invitar a alguien más, por favor avísanos con la mayor anticipación posible para poder considerarlo y preparar todo adecuadamente.','Sí, hay estacionamiento. Como el evento se realiza dentro de un condominio, necesitamos que nos confirmes la patente de cada vehículo para autorizar su ingreso.','Idealmente, confirma tu asistencia lo antes posible, ya que falta poco para la fecha. Así podremos preparar cada detalle con todo cariño.','¡Sí! Los niños de nuestra familia y de nuestros invitados son muy bienvenidos y formarán parte de este momento tan especial.','Te sugerimos tomar como inspiración las opciones del dress code y mantener ese estilo: ropa ligera, cómoda y elegante. Para mantener la armonía de la celebración, pedimos evitar prendas en tonos blanco, off-white, beige, arena y demás colores muy claros, reservados para los novios.'],
     rsvpTitle:'Confirma tu asistencia',
+    rsvpGuestLabel:'Nombre y apellido',
+    rsvpGuestPlaceholder:'Tu nombre completo',
+    rsvpRemove:'Eliminar',
+    rsvpMaxGuests:'Máximo de 4 invitados',
     rsvpAddGuest:'+ Agregar otro invitado',
     rsvpChoiceLabel:'¿Podrán asistir?',
     rsvpOptions:['Sí, estaremos allí','No podremos asistir'],
     rsvpSubmit:'Enviar confirmación',
+    rsvpValidationName:'Por favor, ingresa al menos un nombre.',
+    rsvpValidationChoice:'Por favor, selecciona si podrán asistir.',
+    rsvpVehicleQuestion:'¿Vas en vehículo particular?',
+    rsvpVehicleOptions:['Sí','No'],
+    rsvpPlateLabel:'Patente del vehículo',
+    rsvpPlatePlaceholder:'Ingresa la patente del vehículo',
+    rsvpValidationVehicle:'Por favor, selecciona si irás en vehículo particular.',
+    rsvpValidationPlate:'Por favor, ingresa la patente del vehículo.',
+    rsvpSending:'Enviando...',
+    rsvpSuccessYes:'¡Asistencia confirmada! Estamos deseando celebrar con ustedes.',
+    rsvpSuccessNo:'¡Gracias por avisarnos! Los extrañaremos.',
+    rsvpError:'No fue posible enviar la confirmación. Inténtalo nuevamente o contáctanos por WhatsApp.',
+    rsvpMessageTitle:'Confirmación de asistencia',
+    rsvpMessageGuests:'Invitados:',
+    rsvpMessagePresence:'Asistencia:',
+    rsvpMessageVehicle:'Vehículo particular:',
+    rsvpMessagePlate:'Patente:',
     instagramEyebrow:'Comparte este momento',
     instagramText:'Marca tus fotos con nuestro hashtag y ayuda a construir la memoria de nuestro compromiso.',
     footerQuote:'El amor no conoce fronteras.<br />Gracias por ser parte de nuestra historia.',
@@ -1059,9 +1112,8 @@ function applyLanguage(lang){
   document.getElementById('mapsLink').textContent=current.mapsLabel;
   document.getElementById('mapsLink').href=current.mapsUrl;
 
-  var venueText = document.getElementById('venueName').textContent.trim();
-  if (lang === 'es' && venueText.indexOf('Santiago Centro') === -1) {
-    document.getElementById('venueName').innerHTML='Parcelación Alto El Rosario';
+  if (lang === 'es') {
+    document.getElementById('venueName').textContent='Parcelación Alto El Rosario, Padre Hurtado';
   }
 
   document.getElementById('countLabel').textContent=current.countLabel;
@@ -1120,12 +1172,33 @@ function applyLanguage(lang){
 
   document.getElementById('rsvpTitle').textContent=current.rsvpTitle;
   document.getElementById('rsvpAddGuest').textContent=current.rsvpAddGuest;
+  document.querySelectorAll('.rsvp__field label').forEach(function(el, index){
+    el.textContent=current.rsvpGuestLabel+' '+(index+1);
+  });
+  document.querySelectorAll('.rsvp__field input').forEach(function(input){
+    input.placeholder=current.rsvpGuestPlaceholder;
+  });
+  document.querySelectorAll('.rsvp__remove').forEach(function(button){
+    button.textContent=current.rsvpRemove;
+  });
   document.querySelector('.rsvp__choiceLabel').textContent=current.rsvpChoiceLabel;
   document.querySelectorAll('.rsvp__choiceBtn').forEach(function(el, index){
     el.textContent=current.rsvpOptions[index];
-    el.setAttribute('data-value', current.rsvpOptions[index].indexOf('Sí') !== -1 || current.rsvpOptions[index].indexOf('Sim') !== -1 ? 'Sim' : 'Não');
+    el.setAttribute('data-value', index===0 ? (lang==='es'?'Sí':'Sim') : (lang==='es'?'No':'Não'));
   });
+  document.getElementById('rsvpVehicleLabel').textContent=current.rsvpVehicleQuestion;
+  document.querySelectorAll('#rsvpVehicleChoice .rsvp__choiceBtn').forEach(function(el, index){
+    el.textContent=current.rsvpVehicleOptions[index];
+    el.setAttribute('data-vehicle-value', index===0 ? (lang==='es'?'Sí':'Sim') : (lang==='es'?'No':'Não'));
+  });
+  document.getElementById('rsvpPlateLabel').textContent=current.rsvpPlateLabel;
+  document.getElementById('rsvpPlate').placeholder=current.rsvpPlatePlaceholder;
   document.getElementById('rsvpSubmit').textContent=current.rsvpSubmit;
+  if(typeof rsvpConfirmValue!=='undefined') rsvpConfirmValue='';
+  if(typeof rsvpVehicleValue!=='undefined'){
+    rsvpVehicleValue='';
+    if(typeof rsvpUpdateVehicleField==='function') rsvpUpdateVehicleField();
+  }
 
   document.getElementById('instagramEyebrow').textContent=current.instagramEyebrow;
   document.getElementById('instagramText').textContent=current.instagramText;
@@ -1149,7 +1222,7 @@ if(langButtons.length){
     });
   });
 }
-applyLanguage('pt');
+applyLanguage('es');
 
 document.getElementById('transferCopyAll').addEventListener('click', function(){
   var button=this;
@@ -1206,7 +1279,7 @@ if('IntersectionObserver' in window){
   revealEls.forEach(function(el){ el.classList.add('is-visible'); });
 }
 
-var EVENT_DATE = new Date('2026-09-05T17:00:00-03:00').getTime();
+var EVENT_DATE = new Date('2026-10-03T17:00:00-03:00').getTime();
 var elDays=document.getElementById('cd-days');
 var elHours=document.getElementById('cd-hours');
 var elMinutes=document.getElementById('cd-minutes');
@@ -1301,22 +1374,29 @@ var rsvpStatus=document.getElementById('rsvpStatus');
 var rsvpMaxGuests=4;
 var rsvpGuestCount=1;
 var rsvpConfirmValue='';
+var rsvpVehicleValue='';
+var rsvpVehicleChoice=document.getElementById('rsvpVehicleChoice');
+var rsvpPlateField=document.getElementById('rsvpPlateField');
+var rsvpPlate=document.getElementById('rsvpPlate');
 
 function rsvpUpdateAddButton(){
   if(!rsvpAddGuest) return;
   var atMax=rsvpGuestCount>=rsvpMaxGuests;
+  var current=translations[document.documentElement.lang==='es-CL'?'es':'pt'];
   rsvpAddGuest.disabled=atMax;
-  rsvpAddGuest.textContent=atMax?'Máximo de 4 convidados':'+ Adicionar outro convidado';
+  rsvpAddGuest.textContent=atMax?current.rsvpMaxGuests:current.rsvpAddGuest;
 }
 
 function rsvpRenumberGuests(){
+  var current=translations[document.documentElement.lang==='es-CL'?'es':'pt'];
   var items=rsvpGuests.querySelectorAll('.rsvp__guest');
   items.forEach(function(item, idx){
     var n=idx+1;
     item.setAttribute('data-guest', n);
     var label=item.querySelector('label');
     var input=item.querySelector('input');
-    if(label){ label.textContent='Nome e sobrenome '+n; label.setAttribute('for','rsvpGuest'+n); }
+    if(label){ label.textContent=current.rsvpGuestLabel+' '+n; label.setAttribute('for','rsvpGuest'+n); }
+    if(input){ input.placeholder=current.rsvpGuestPlaceholder; }
     if(input){ input.id='rsvpGuest'+n; input.name='convidado'+n; }
   });
   rsvpGuestCount=items.length;
@@ -1326,13 +1406,14 @@ if(rsvpAddGuest) rsvpAddGuest.addEventListener('click', function(){
   if(rsvpGuestCount>=rsvpMaxGuests) return;
   rsvpGuestCount++;
   var n=rsvpGuestCount;
+  var current=translations[document.documentElement.lang==='es-CL'?'es':'pt'];
   var wrap=document.createElement('div');
   wrap.className='rsvp__guest';
   wrap.setAttribute('data-guest', n);
   wrap.innerHTML='<div class="rsvp__field">'+
-    '<label for="rsvpGuest'+n+'">Nome e sobrenome '+n+'</label>'+
-    '<input type="text" id="rsvpGuest'+n+'" name="convidado'+n+'" placeholder="Nome completo">'+
-    '<button type="button" class="rsvp__remove">Remover</button>'+
+    '<label for="rsvpGuest'+n+'">'+current.rsvpGuestLabel+' '+n+'</label>'+
+    '<input type="text" id="rsvpGuest'+n+'" name="convidado'+n+'" placeholder="'+current.rsvpGuestPlaceholder+'">'+
+    '<button type="button" class="rsvp__remove">'+current.rsvpRemove+'</button>'+
   '</div>';
   rsvpGuests.appendChild(wrap);
   wrap.querySelector('.rsvp__remove').addEventListener('click', function(){
@@ -1354,7 +1435,29 @@ if(rsvpChoice){
   });
 }
 
+function rsvpUpdateVehicleField(){
+  var hasVehicle=rsvpVehicleValue===(document.documentElement.lang==='es-CL'?'Sí':'Sim');
+  if(rsvpPlateField) rsvpPlateField.hidden=!hasVehicle;
+  if(rsvpPlate){
+    rsvpPlate.required=hasVehicle;
+    if(!hasVehicle) rsvpPlate.value='';
+  }
+}
+
+if(rsvpVehicleChoice){
+  var rsvpVehicleBtns=rsvpVehicleChoice.querySelectorAll('.rsvp__choiceBtn');
+  rsvpVehicleBtns.forEach(function(btn){
+    btn.addEventListener('click', function(){
+      rsvpVehicleBtns.forEach(function(b){ b.classList.remove('is-active'); });
+      btn.classList.add('is-active');
+      rsvpVehicleValue=btn.getAttribute('data-vehicle-value');
+      rsvpUpdateVehicleField();
+    });
+  });
+}
+
 if(rsvpForm) rsvpForm.addEventListener('submit', function(e){
+  var current=translations[document.documentElement.lang==='es-CL'?'es':'pt'];
   e.preventDefault();
   rsvpStatus.classList.remove('is-error');
   rsvpStatus.textContent='';
@@ -1365,26 +1468,40 @@ if(rsvpForm) rsvpForm.addEventListener('submit', function(e){
   });
 
   if(names.length===0){
-    rsvpStatus.textContent='Por favor, preencha ao menos um nome.';
+    rsvpStatus.textContent=current.rsvpValidationName;
     rsvpStatus.classList.add('is-error');
     return;
   }
   if(!rsvpConfirmValue){
-    rsvpStatus.textContent='Por favor, selecione se poderão comparecer.';
+    rsvpStatus.textContent=current.rsvpValidationChoice;
+    rsvpStatus.classList.add('is-error');
+    return;
+  }
+  if(!rsvpVehicleValue){
+    rsvpStatus.textContent=current.rsvpValidationVehicle;
+    rsvpStatus.classList.add('is-error');
+    return;
+  }
+  var hasVehicle=rsvpVehicleValue===(document.documentElement.lang==='es-CL'?'Sí':'Sim');
+  var plate=hasVehicle&&rsvpPlate ? rsvpPlate.value.trim() : '';
+  if(hasVehicle&&!plate){
+    rsvpStatus.textContent=current.rsvpValidationPlate;
     rsvpStatus.classList.add('is-error');
     return;
   }
 
   var summary=names.map(function(n,i){ return (i+1)+'. '+n; }).join('\n');
-  var message='Confirmação de presença - Vicente & Rayssa\n\nConvidados:\n'+summary+'\n\nPresença: '+rsvpConfirmValue;
+  var message=current.rsvpMessageTitle+' - Vicente & Rayssa\n\n'+current.rsvpMessageGuests+'\n'+summary+'\n\n'+current.rsvpMessagePresence+' '+rsvpConfirmValue+'\n'+current.rsvpMessageVehicle+' '+rsvpVehicleValue+(hasVehicle?'\n'+current.rsvpMessagePlate+' '+plate:'');
   var waLink='https://wa.me/'+RSVP_WHATSAPP_NUMBER+'?text='+encodeURIComponent(message);
 
   rsvpSubmit.disabled=true;
-  rsvpSubmit.textContent='Enviando...';
+  rsvpSubmit.textContent=current.rsvpSending;
 
   var formData=new FormData();
   names.forEach(function(n,i){ formData.append('convidado'+(i+1), n); });
   formData.append('confirmacao', rsvpConfirmValue);
+  formData.append('veiculo', rsvpVehicleValue);
+  formData.append('patente', plate || (document.documentElement.lang==='es-CL'?'No irán en vehículo':'Não irão de carro'));
   formData.append('resumo', message);
 
   fetch(RSVP_FORMSPREE_ENDPOINT, {
@@ -1393,20 +1510,23 @@ if(rsvpForm) rsvpForm.addEventListener('submit', function(e){
     body: formData
   }).then(function(res){
     if(!res.ok) throw new Error('Formspree error');
-    rsvpStatus.textContent = rsvpConfirmValue==='Sim'
-      ? 'Presença confirmada! Mal podemos esperar para celebrar com vocês.'
-      : 'Obrigado por avisar! Sentiremos sua falta.';
+    rsvpStatus.textContent = rsvpConfirmValue===(document.documentElement.lang==='es-CL'?'Sí':'Sim')
+      ? current.rsvpSuccessYes
+      : current.rsvpSuccessNo;
     try{ window.open(waLink, '_blank'); }catch(err){}
     rsvpForm.reset();
     if(rsvpChoice) rsvpChoice.querySelectorAll('.rsvp__choiceBtn').forEach(function(b){ b.classList.remove('is-active'); });
+    if(rsvpVehicleChoice) rsvpVehicleChoice.querySelectorAll('.rsvp__choiceBtn').forEach(function(b){ b.classList.remove('is-active'); });
     rsvpConfirmValue='';
+    rsvpVehicleValue='';
+    rsvpUpdateVehicleField();
   }).catch(function(){
-    rsvpStatus.textContent='Não foi possível enviar agora. Tente novamente ou fale com a gente pelo WhatsApp.';
+    rsvpStatus.textContent=current.rsvpError;
     rsvpStatus.classList.add('is-error');
     try{ window.open(waLink, '_blank'); }catch(err){}
   }).finally(function(){
     rsvpSubmit.disabled=false;
-    rsvpSubmit.textContent='Enviar confirmação';
+    rsvpSubmit.textContent=current.rsvpSubmit;
   });
 });
 
