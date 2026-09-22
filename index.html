@@ -157,6 +157,11 @@ button{font-family:inherit;border:none;background:none;cursor:pointer;color:inhe
 .timeline{max-width:720px;margin:0 auto}
 .timeline__item{display:grid;grid-template-columns:52px 1fr;gap:1.4rem;padding:1.5rem 0;border-top:1px solid var(--line)}
 .timeline__item:first-child{border-top:none}
+.timeline__item--current{position:relative;margin:1rem 0;padding:1.3rem 1rem 1.3rem 0;border:1px solid rgba(95,77,62,.18);border-radius:1.25rem;background:linear-gradient(135deg,rgba(182,156,132,.16),rgba(245,234,222,.62));box-shadow:0 18px 28px -26px rgba(71,35,17,.52)}
+.timeline__item--current .timeline__num{display:grid;place-items:center;width:52px;height:52px;border-radius:50%;background:var(--accent);color:var(--bg);padding-top:0;box-shadow:0 12px 24px -18px rgba(71,35,17,.6)}
+.timeline__item--current .timeline__tag{color:var(--accent);font-weight:600}
+.timeline__item--current .timeline__card{padding:0 .15rem 0 0}
+.timeline__item--current .timeline__card h3{color:var(--ink)}
 .timeline__num{font-family:var(--font-title);font-style:italic;font-size:1.3rem;color:var(--accent);padding-top:.1rem}
 .timeline__card h3{font-size:1.3rem;margin-bottom:.35rem}
 .timeline__tag{display:block;font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:.35rem}
@@ -177,6 +182,16 @@ button{font-family:inherit;border:none;background:none;cursor:pointer;color:inhe
 .info__card h3{font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);margin-bottom:.6rem;font-family:var(--font-body);font-weight:500}
 .info__card p{font-size:1.15rem;color:var(--ink)}
 .info__mapsBtn{margin-top:1rem;display:inline-flex}
+.info__calendarActions{display:flex;flex-wrap:wrap;justify-content:center;gap:1rem;margin-top:2rem}
+.info__calendarBtn{
+  display:inline-flex;align-items:center;justify-content:center;
+  padding:.9rem 1.35rem;border:1px solid rgba(71,35,17,.2);
+  background:rgba(140,90,46,.08);color:var(--ink);font-weight:600;
+  box-shadow:0 12px 18px -16px rgba(71,35,17,.55);
+  transition:transform .3s var(--ease),box-shadow .3s var(--ease),background .3s var(--ease),border-color .3s var(--ease);
+}
+.info__calendarBtn:hover{transform:translateY(-2px);background:rgba(140,90,46,.12);border-color:rgba(71,35,17,.4);box-shadow:0 16px 24px -18px rgba(71,35,17,.65)}
+.info__calendarBtn::after{content:none}
 
 /* ---------- confirmação (rsvp) ---------- */
 .rsvp{text-align:center}
@@ -438,7 +453,7 @@ button{font-family:inherit;border:none;background:none;cursor:pointer;color:inhe
           <p>O pedido, o sim — e agora a certeza de que essa história merece ser celebrada ao lado de quem amamos.</p>
         </div>
       </li>
-      <li class="timeline__item reveal">
+      <li class="timeline__item timeline__item--current reveal">
         <span class="timeline__num">VI</span>
         <div class="timeline__card">
           <span class="timeline__tag">O próximo passo</span>
@@ -475,7 +490,7 @@ button{font-family:inherit;border:none;background:none;cursor:pointer;color:inhe
       <p class="eyebrow reveal" id="detailsEyebrow">Detalhes</p>
       <h2 class="section__title reveal" id="infoTitle">Informações</h2>
     </div>
-    <p class="info__intro reveal" id="infoIntro">Queremos um encontro leve, cheio de amor, boas conversas e pessoas especiais.</p>
+    <p class="info__intro reveal" id="infoIntro">Queremos um encontro leve, cheio de amor, boas conversas e pessoas especiais. Para que tudo transcorra na melhor ordem, pedimos a maior pontualidade possível.</p>
     <div class="info__grid reveal">
       <div class="info__card">
         <h3 id="infoDateLabel">Data</h3>
@@ -490,6 +505,10 @@ button{font-family:inherit;border:none;background:none;cursor:pointer;color:inhe
         <p id="venueName">Alameda Pará, 60<br />Parque Guajará</p>
         <a id="mapsLink" class="link info__mapsBtn" href="https://maps.app.goo.gl/tGKZR7Cri2KhtvGEA" target="_blank" rel="noopener">Google Maps</a>
       </div>
+    </div>
+    <div class="info__calendarActions reveal">
+      <a id="googleCalendarLink" class="link info__calendarBtn" href="#" target="_blank" rel="noopener">Agregar a Google Calendar</a>
+      <a id="appleCalendarLink" class="link info__calendarBtn" href="#" download="boda-vicente-rayssa.ics">Agregar al calendario del iPhone</a>
     </div>
   </section>
 
@@ -670,37 +689,37 @@ button{font-family:inherit;border:none;background:none;cursor:pointer;color:inhe
 
     <div class="gifts__items reveal">
       <div class="gift">
-        <img class="gift__img" src="assets/gift-mala.png.png" alt="Mala dos Sonhos">
+        <img class="gift__img" src="assets/gift-caipi.png.jpeg" alt="Ronda de caipirinhas">
         <h3 class="gift__title" id="giftTitle1">Uma Rodada de Caipirinha</h3>
         <p class="gift__desc" id="giftDesc1">Porque casar dá sede e comemorar faz parte!</p>
         <span class="gift__price" id="giftPrice1">R$ 120,00</span>
       </div>
       <div class="gift">
-        <img class="gift__img" src="assets/gift-vinho.png.png" alt="Vinho Chileno">
-        <h3 class="gift__title" id="giftTitle2">👶 Patrocine Nosso Futuro Herdeiro</h3>
+        <img class="gift__img" src="assets/gift-diccio.png.jpeg" alt="Diccionario de supervivencia">
+        <h3 class="gift__title" id="giftTitle2"> Patrocine Nosso Futuro Herdeiro</h3>
         <p class="gift__desc" id="giftDesc2">Ele ainda nem chegou, mas já estamos pensando nas despesas.</p>
         <span class="gift__price" id="giftPrice2">R$ 150,00</span>
       </div>
       <div class="gift">
-        <img class="gift__img" src="assets/gift-milhas.png.png" alt="Milhas do Amor">
-        <h3 class="gift__title" id="giftTitle3">🌊 Rio, Vamos Nós!</h3>
+        <img class="gift__img" src="assets/gift-tratado.png.jpeg" alt="Tratado de paz">
+        <h3 class="gift__title" id="giftTitle3"> Rio, Vamos Nós!</h3>
         <p class="gift__desc" id="giftDesc3">Uma escapadinha para celebrar o amor e começar essa nova aventura.</p>
         <span class="gift__price" id="giftPrice3">R$ 180,00</span>
       </div>
       <div class="gift">
-        <img class="gift__img" src="assets/gift-cordilheira.png.png" alt="Cordilheira do Amor">
+        <img class="gift__img" src="assets/gift-chaqueta.png.jpeg" alt="Chaqueta para la novia">
         <h3 class="gift__title" id="giftTitle4">Cordilheira do Amor</h3>
         <p class="gift__desc" id="giftDesc4">Nosso amor atravessou fronteiras, e agora atravessa a cordilheira.</p>
         <span class="gift__price" id="giftPrice4">R$ 200,00</span>
       </div>
       <div class="gift">
-        <img class="gift__img gift__img--cover" src="assets/gift-passagem.png.png" alt="Passagem dos Noivos">
+        <img class="gift__img gift__img--cover" src="assets/gift-samba.png.jpeg" alt="Clases de samba">
         <h3 class="gift__title" id="giftTitle5">Passagem dos Noivos</h3>
         <p class="gift__desc" id="giftDesc5">Embarque para o maior capítulo da nossa história.</p>
         <span class="gift__price" id="giftPrice5">R$ 230,00</span>
       </div>
       <div class="gift">
-        <img class="gift__img" src="assets/gift-chile.png.png" alt="Chile, Allá Vamos!">
+        <img class="gift__img" src="assets/gift-crack.png.png" alt="Patrocinio del próximo crack">
         <h3 class="gift__title" id="giftTitle6">Chile, Allá Vamos!</h3>
         <p class="gift__desc" id="giftDesc6">Nosso casamento é no Chile. Nossa gratidão vem de qualquer lugar do mundo.</p>
         <span class="gift__price" id="giftPrice6">R$ 280,00</span>
@@ -873,7 +892,9 @@ var translations={
     coverWelcome:'Bem-vindos ao nosso noivado',
     detailsEyebrow:'Detalhes',
     infoTitle:'Informações',
-    infoIntro:'Queremos um encontro leve, cheio de amor, boas conversas e pessoas especiais.',
+    infoIntro:'Queremos um encontro leve, cheio de amor, boas conversas e pessoas especiais. Para que tudo transcorra na melhor ordem, pedimos a maior pontualidade possível.',
+    calendarGoogleLabel:'Adicionar ao Google Calendar',
+    calendarAppleLabel:'Adicionar ao calendário do iPhone',
     infoDateLabel:'Data',
     infoDate:'05 Set 2026',
     infoTimeLabel:'Horário',
@@ -974,7 +995,9 @@ var translations={
     coverWelcome:'Bienvenidos a nuestra boda',
     detailsEyebrow:'Detalles',
     infoTitle:'Información',
-    infoIntro:'Queremos una reunión tranquila, llena de amor, buenas conversaciones y personas especiales.',
+    infoIntro:'Queremos una reunión tranquila, llena de amor, buenas conversaciones y personas especiales. Para que todo transcurra en el mejor orden, pedimos la mayor puntualidad posible.',
+    calendarGoogleLabel:'Agregar a Google Calendar',
+    calendarAppleLabel:'Agregar al calendario del iPhone',
     infoDateLabel:'Fecha',
     infoDate:'03 Oct 2026',
     infoTimeLabel:'Horario',
@@ -1074,6 +1097,54 @@ function onScrollHeader(){
 window.addEventListener('scroll', onScrollHeader, {passive:true});
 onScrollHeader();
 
+function buildGoogleCalendarUrl(title, details, location){
+  var start = new Date('2026-10-03T13:00:00-03:00');
+  var end = new Date('2026-10-03T17:00:00-03:00');
+  var startIso = start.toISOString().replace(/[-:]/g, '').replace(/\.\d{3}Z$/, 'Z');
+  var endIso = end.toISOString().replace(/[-:]/g, '').replace(/\.\d{3}Z$/, 'Z');
+  return 'https://calendar.google.com/calendar/render?action=TEMPLATE' +
+    '&text=' + encodeURIComponent(title) +
+    '&dates=' + startIso + '/' + endIso +
+    '&details=' + encodeURIComponent(details) +
+    '&location=' + encodeURIComponent(location);
+}
+
+function buildIcsCalendarData(title, details, location){
+  var start = new Date('2026-10-03T13:00:00-03:00');
+  var end = new Date('2026-10-03T17:00:00-03:00');
+  var formatIcsDate = function(date){
+    return date.toISOString().replace(/[-:]/g, '').replace(/\.\d{3}Z$/, 'Z');
+  };
+
+  var data = [
+    'BEGIN:VCALENDAR',
+    'VERSION:2.0',
+    'PRODID:-//Vicente & Rayssa//Wedding Calendar//ES',
+    'BEGIN:VEVENT',
+    'UID:boda-vicente-rayssa-20261003@calendar',
+    'DTSTAMP:' + formatIcsDate(new Date()),
+    'DTSTART:' + formatIcsDate(start),
+    'DTEND:' + formatIcsDate(end),
+    'SUMMARY:' + title,
+    'DESCRIPTION:' + details.replace(/\r?\n/g, ' '),
+    'LOCATION:' + location,
+    'BEGIN:VALARM',
+    'TRIGGER:-P7D',
+    'ACTION:DISPLAY',
+    'DESCRIPTION:Recordatorio: faltan 7 días para la boda',
+    'END:VALARM',
+    'BEGIN:VALARM',
+    'TRIGGER:-P1D',
+    'ACTION:DISPLAY',
+    'DESCRIPTION:Recordatorio: mañana es la boda',
+    'END:VALARM',
+    'END:VEVENT',
+    'END:VCALENDAR'
+  ].join('\r\n');
+
+  return 'data:text/calendar;charset=utf8,' + encodeURIComponent(data);
+}
+
 function applyLanguage(lang){
   var current=translations[lang] || translations.pt;
   var navLinks=document.querySelectorAll('.header__nav a');
@@ -1111,6 +1182,15 @@ function applyLanguage(lang){
   document.getElementById('venueName').innerHTML=current.venueName;
   document.getElementById('mapsLink').textContent=current.mapsLabel;
   document.getElementById('mapsLink').href=current.mapsUrl;
+
+  var eventTitle = 'Boda de Vicente y Rayssa';
+  var eventDetails = 'Te esperamos para celebrar nuestro día especial. La boda será el 03 de octubre de 2026 a las 13:00 hrs en Santiago, Chile.';
+  var eventLocation = 'Parcelación Alto El Rosario, Padre Hurtado, Santiago — Chile (' + current.mapsUrl + ')';
+
+  document.getElementById('googleCalendarLink').textContent=current.calendarGoogleLabel || 'Agregar a Google Calendar';
+  document.getElementById('googleCalendarLink').href = buildGoogleCalendarUrl(eventTitle, eventDetails, eventLocation);
+  document.getElementById('appleCalendarLink').textContent=current.calendarAppleLabel || 'Agregar al calendario del iPhone';
+  document.getElementById('appleCalendarLink').href = buildIcsCalendarData(eventTitle, eventDetails, eventLocation);
 
   if (lang === 'es') {
     document.getElementById('venueName').textContent='Parcelación Alto El Rosario, Padre Hurtado';
