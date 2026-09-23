@@ -3,11 +3,11 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-<title>Vicente &amp; Rayssa — Nosso Noivado</title>
+<title>Vicente &amp; Rayssa — Nuestro compromiso</title>
 <meta name="description" content="Vicente y Rayssa celebran su boda. Dos países, un único sueño. 03 de octubre de 2026, Santiago - Chile." />
 <meta name="theme-color" content="#472311" />
 <meta property="og:type" content="website" />
-<meta property="og:title" content="Vicente & Rayssa — Nosso Noivado" />
+<meta property="og:title" content="Vicente & Rayssa — Nuestro compromiso" />
 <meta property="og:description" content="Dos países. Dos culturas. Un único sueño. 03 de octubre de 2026, Santiago - Chile." />
 <meta property="og:locale" content="es_CL" />
 <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
@@ -37,7 +37,7 @@
   --ease: cubic-bezier(.22,1,.36,1);
 }
 *,*::before,*::after{box-sizing:border-box}
-html{scroll-behavior:smooth}
+html{scroll-behavior:smooth;overflow-x:hidden}
 body{
   margin:0;
   background:var(--bg);
@@ -103,7 +103,7 @@ button{font-family:inherit;border:none;background:none;cursor:pointer;color:inhe
   transition:opacity .8s var(--ease),visibility .8s var(--ease);
 }
 .cover.is-hidden{opacity:0;visibility:hidden;pointer-events:none}
-.cover__content{position:relative;text-align:center;padding:2rem;animation:coverIn 1.2s var(--ease) both}
+.cover__content{position:relative;width:100%;max-width:100%;text-align:center;padding:2rem;animation:coverIn 1.2s var(--ease) both}
 @keyframes coverIn{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
 .cover__names{
   font-family:var(--font-title);font-size:clamp(2.4rem,7.5vw,4rem);
@@ -132,7 +132,7 @@ button{font-family:inherit;border:none;background:none;cursor:pointer;color:inhe
 .header__nav a{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--bg);transition:color .4s var(--ease),opacity .3s var(--ease);opacity:.85}
 .header__nav a:hover{opacity:1}
 .header.is-scrolled .header__nav a{color:var(--ink)}
-.header__toggle{display:none;flex-direction:column;gap:5px;padding:6px}
+.header__toggle{display:none;position:relative;z-index:101;flex-direction:column;gap:5px;padding:6px}
 .header__toggle span{width:22px;height:1px;background:var(--bg);transition:background .3s var(--ease),transform .3s var(--ease),opacity .3s var(--ease)}
 .header.is-scrolled .header__toggle span{background:var(--ink)}
 
@@ -302,7 +302,7 @@ button{font-family:inherit;border:none;background:none;cursor:pointer;color:inhe
 .lightbox{position:fixed;inset:0;z-index:300;background:rgba(71,35,17,.94);display:flex;align-items:center;justify-content:center;padding:2rem;opacity:0;visibility:hidden;transition:opacity .35s var(--ease),visibility .35s var(--ease)}
 .lightbox.is-open{opacity:1;visibility:visible}
 .lightbox__stage{max-width:520px;width:100%}
-.lightbox__stage .ph{aspect-ratio:4/5;background:rgba(244,234,222,.12);color:var(--bg)}
+.lightbox__caption{margin-top:.75rem;color:rgba(244,234,222,.78);font-size:.78rem;letter-spacing:.08em;text-align:center}
 .lightbox__img{display:none;width:100%;aspect-ratio:4/5;object-fit:cover}
 .lightbox__close{position:absolute;top:1.5rem;right:1.7rem;font-size:.75rem;letter-spacing:.14em;text-transform:uppercase;color:var(--bg);border-bottom:1px solid rgba(244,234,222,.5);padding-bottom:2px}
 
@@ -367,7 +367,7 @@ body.site-entered .floating-rsvp{opacity:1;transform:translateY(0);pointer-event
 <body>
 
 <!-- COVER -->
-<section id="cover" class="cover" aria-label="Tela de boas-vindas">
+<section id="cover" class="cover" aria-label="Pantalla de bienvenida">
   <div class="cover__content">
     <p class="cover__names"><span>Vicente</span><span class="cover__amp">&amp;</span><span>Rayssa</span></p>
     <p class="cover__date" id="coverDate">03 de Octubre de 2026</p>
@@ -382,10 +382,10 @@ body.site-entered .floating-rsvp{opacity:1;transform:translateY(0);pointer-event
 <header id="siteHeader" class="header">
   <div class="header__inner">
     <a href="#cover" class="header__logo">Vicente <span>&amp;</span> Rayssa</a>
-    <button type="button" id="menuToggle" class="header__toggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="primaryNav">
+    <button type="button" id="menuToggle" class="header__toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="primaryNav">
       <span></span><span></span><span></span>
     </button>
-    <nav id="primaryNav" class="header__nav" aria-label="Navegação principal">
+    <nav id="primaryNav" class="header__nav" aria-label="Navegación principal">
       <a href="#historia">História</a>
       <a href="#informacoes">Informações</a>
       <a href="#dresscode">Dress Code</a>
@@ -636,10 +636,10 @@ body.site-entered .floating-rsvp{opacity:1;transform:translateY(0);pointer-event
       <h2 class="section__title reveal" id="galleryTitle">Galeria</h2>
     </div>
     <div class="gallery__grid" id="galleryGrid">
-      <button type="button" class="gallery__item reveal" data-caption="Nosso primeiro encontro"><span class="ph"><img src="assets/photo_1.jpg" alt="Nosso primeiro encontro" style="width:100%;height:100%;object-fit:cover"></span></button>
-      <button type="button" class="gallery__item reveal" data-caption="Viagem ao Chile"><span class="ph"><img src="assets/photo_2.jpg" alt="Viagem ao Chile" style="width:100%;height:100%;object-fit:cover"></span></button>
-      <button type="button" class="gallery__item reveal" data-caption="Viagem ao Brasil"><span class="ph"><img src="assets/photo_3.jpg" alt="Viagem ao Brasil" style="width:100%;height:100%;object-fit:cover"></span></button>
-      <button type="button" class="gallery__item reveal" data-caption="O pedido"><span class="ph"><img src="assets/photo_4.jpg" alt="O pedido" style="width:100%;height:100%;object-fit:cover"></span></button>
+      <button type="button" class="gallery__item reveal" data-caption="Nuestro primer encuentro"><span class="ph"><img src="assets/photo_1.jpg" alt="Nuestro primer encuentro" style="width:100%;height:100%;object-fit:cover"></span></button>
+      <button type="button" class="gallery__item reveal" data-caption="Viaje a Chile"><span class="ph"><img src="assets/photo_2.jpg" alt="Viaje a Chile" style="width:100%;height:100%;object-fit:cover"></span></button>
+      <button type="button" class="gallery__item reveal" data-caption="Viaje a Brasil"><span class="ph"><img src="assets/photo_3.jpg" alt="Viaje a Brasil" style="width:100%;height:100%;object-fit:cover"></span></button>
+      <button type="button" class="gallery__item reveal" data-caption="La propuesta"><span class="ph"><img src="assets/photo_4.jpg" alt="La propuesta" style="width:100%;height:100%;object-fit:cover"></span></button>
     </div>
   </section>
 
@@ -831,17 +831,17 @@ body.site-entered .floating-rsvp{opacity:1;transform:translateY(0);pointer-event
 
 <!-- MÚSICA -->
 <audio id="bgMusic" src="assets/youre-still-the-one.mp3" loop preload="auto"></audio>
-<button type="button" class="music-toggle" id="musicToggle" aria-pressed="true">
+<button type="button" class="music-toggle" id="musicToggle" aria-label="Pausar música" aria-pressed="true">
   <span class="music-toggle__icon">♪</span>
   <span class="music-toggle__label">Pausar música</span>
 </button>
 
 <!-- LIGHTBOX -->
-<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Visualização de foto" hidden>
-  <button type="button" class="lightbox__close" id="lightboxClose">Fechar</button>
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Visualización de foto" hidden>
+  <button type="button" class="lightbox__close" id="lightboxClose">Cerrar</button>
   <div class="lightbox__stage">
-    <img class="lightbox__img" id="lightboxImg" alt="">
-    <div class="ph" id="lightboxCaption">Foto</div>
+    <img class="lightbox__img" id="lightboxImg" src="assets/photo_1.jpg" alt="Nuestro primer encuentro">
+    <div class="lightbox__caption" id="lightboxCaption">Foto</div>
   </div>
 </div>
 
@@ -862,6 +862,7 @@ function updateMusicToggle(){
   if(!musicToggle) return;
   var playing=bgMusic&&!bgMusic.paused;
   musicToggle.setAttribute('aria-pressed', playing?'true':'false');
+  musicToggle.setAttribute('aria-label', playing?'Pausar música':'Reproducir música');
   if(musicLabel) musicLabel.textContent=playing?'Pausar música':'Tocar música';
 }
 if(bgMusic){
@@ -1357,12 +1358,14 @@ if(menuToggle && primaryNav){
     var open=primaryNav.classList.toggle('is-open');
     menuToggle.classList.toggle('is-open', open);
     menuToggle.setAttribute('aria-expanded', String(open));
+    menuToggle.setAttribute('aria-label', open?'Cerrar menú':'Abrir menú');
   });
   primaryNav.querySelectorAll('a').forEach(function(link){
     link.addEventListener('click', function(){
       primaryNav.classList.remove('is-open');
       menuToggle.classList.remove('is-open');
       menuToggle.setAttribute('aria-expanded','false');
+      menuToggle.setAttribute('aria-label','Abrir menú');
     });
   });
 }
@@ -1432,15 +1435,15 @@ var lastFocused=null;
 
 function openLightbox(caption, imgSrc){
   lastFocused=document.activeElement;
+  lightboxCaption.textContent=caption||'Foto';
   if(imgSrc){
     lightboxImg.src=imgSrc;
     lightboxImg.alt=caption||'Foto';
     lightboxImg.style.display='block';
-    lightboxCaption.style.display='none';
+    lightboxCaption.style.display='block';
   }else{
     lightboxImg.style.display='none';
     lightboxCaption.style.display='flex';
-    lightboxCaption.textContent=caption||'Foto';
   }
   lightbox.hidden=false;
   requestAnimationFrame(function(){ lightbox.classList.add('is-open'); });
@@ -1504,6 +1507,16 @@ function rsvpRenumberGuests(){
     if(input){ input.id='rsvpGuest'+n; input.name='convidado'+n; }
   });
   rsvpGuestCount=items.length;
+}
+
+function rsvpResetGuests(){
+  var items=rsvpGuests.querySelectorAll('.rsvp__guest');
+  items.forEach(function(item, index){
+    if(index>0) item.remove();
+  });
+  rsvpGuestCount=1;
+  rsvpRenumberGuests();
+  rsvpUpdateAddButton();
 }
 
 if(rsvpAddGuest) rsvpAddGuest.addEventListener('click', function(){
@@ -1619,6 +1632,7 @@ if(rsvpForm) rsvpForm.addEventListener('submit', function(e){
       : current.rsvpSuccessNo;
     try{ window.open(waLink, '_blank'); }catch(err){}
     rsvpForm.reset();
+    rsvpResetGuests();
     if(rsvpChoice) rsvpChoice.querySelectorAll('.rsvp__choiceBtn').forEach(function(b){ b.classList.remove('is-active'); });
     if(rsvpVehicleChoice) rsvpVehicleChoice.querySelectorAll('.rsvp__choiceBtn').forEach(function(b){ b.classList.remove('is-active'); });
     rsvpConfirmValue='';
