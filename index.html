@@ -113,6 +113,7 @@ button{font-family:inherit;border:none;background:none;cursor:pointer;color:inhe
 .cover__date{font-size:.85rem;letter-spacing:.14em;text-transform:uppercase;margin-bottom:.15rem}
 .cover__place{font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(244,234,222,.6);margin-bottom:1.8rem}
 .cover__welcome{font-family:var(--font-title);font-style:italic;font-size:1.05rem;margin-bottom:1.8rem;color:rgba(244,234,222,.85)}
+.cover__instruction{max-width:300px;margin:-.7rem auto 1.8rem;font-size:.72rem;line-height:1.5;letter-spacing:.04em;color:rgba(244,234,222,.62)}
 .cover__enter{
   font-size:.75rem;letter-spacing:.2em;text-transform:uppercase;
   padding:.85rem 2.1rem;border:1px solid rgba(244,234,222,.5);
@@ -134,17 +135,6 @@ button{font-family:inherit;border:none;background:none;cursor:pointer;color:inhe
 .header__toggle{display:none;flex-direction:column;gap:5px;padding:6px}
 .header__toggle span{width:22px;height:1px;background:var(--bg);transition:background .3s var(--ease),transform .3s var(--ease),opacity .3s var(--ease)}
 .header.is-scrolled .header__toggle span{background:var(--ink)}
-
-.lang-switcher{display:flex;align-items:center;gap:.4rem;padding:.2rem;border:1px solid rgba(244,234,222,.4);border-radius:999px;background:rgba(71,35,17,.12);backdrop-filter:blur(8px)}
-.header.is-scrolled .lang-switcher{background:rgba(71,35,17,.04);border-color:var(--line)}
-.lang-btn{appearance:none;border:none;background:transparent;color:var(--bg);font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;padding:.45rem .7rem;border-radius:999px;cursor:pointer;transition:background .25s var(--ease),color .25s var(--ease),transform .25s var(--ease)}
-.header.is-scrolled .lang-btn{color:var(--ink)}
-.lang-btn.is-active{background:var(--bg);color:var(--ink);box-shadow:0 8px 20px -12px rgba(71,35,17,.5)}
-.lang-btn:hover{transform:translateY(-1px)}
-@media (max-width:720px){
-  .lang-switcher{margin-right:auto;margin-left:1rem}
-  .lang-btn{padding:.4rem .55rem;letter-spacing:.08em}
-}
 
 /* ---------- hero ---------- */
 .hero{position:relative;padding:clamp(6.5rem,12vw,8.5rem) 1.5rem 3rem;max-width:var(--w);margin:0 auto;display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:clamp(2rem,5vw,4rem)}
@@ -226,14 +216,27 @@ button{font-family:inherit;border:none;background:none;cursor:pointer;color:inhe
 .dresscode__card{background:var(--bg);padding:1.9rem;text-align:left}
 .dresscode__card h3{font-size:1.15rem;margin-bottom:.5rem}
 .dresscode__card p{font-size:.9rem;color:var(--ink-faint);text-align:justify}
-.dresscode__note{margin-top:2.2rem;font-family:var(--font-title);font-style:italic;color:var(--ink-soft);font-size:1.2rem;line-height:1.7}
+.dresscode__note{margin-top:2.2rem;padding:1.1rem 0;border-top:1px solid var(--accent);border-bottom:1px solid var(--accent);font-family:var(--font-body);color:var(--ink-soft);font-size:.92rem;line-height:1.7}
+.dresscode__note strong{display:block;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:.25rem}
+.weather{max-width:720px;margin:2.8rem auto 0;padding:1.7rem;background:var(--card);border:1px solid var(--line-strong);text-align:left}
+.weather__head{display:flex;align-items:baseline;justify-content:space-between;gap:1rem;margin-bottom:.35rem}
+.weather__title{font-size:1.45rem}
+.weather__date{font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);text-align:right}
+.weather__intro,.weather__updated{font-size:.82rem;color:var(--ink-faint)}
+.weather__updated{margin-top:1rem;font-size:.68rem}
+.weather__status{margin-top:1.1rem;color:var(--ink);font-family:var(--font-title);font-size:1.15rem}
+.weather__link{margin-top:1.1rem}
+.weather__updated{margin-top:1.1rem}
 
 .looks{margin-top:2.8rem;padding-top:2.4rem;border-top:1px solid var(--line)}
+.looks[hidden]{display:none}
 .looks__title{font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);margin-bottom:2rem;text-align:center}
 .looks__group{margin-bottom:2.4rem}
 .looks__group:last-child{margin-bottom:0}
 .looks__label{display:block;font-family:var(--font-title);font-style:italic;font-size:1.2rem;color:var(--ink);margin-bottom:1.2rem;text-align:center}
-.looks__grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.4rem}
+.looks__grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem}
+.looks__note{max-width:560px;margin:0 auto 1.8rem;font-size:.82rem;line-height:1.6;color:var(--ink-faint);text-align:center}
+.looks__note strong{display:block;margin-bottom:.15rem;color:var(--accent);font-size:.76rem;letter-spacing:.14em;text-transform:uppercase}
 .look{margin:0;text-align:center}
 .look img{width:100%;height:190px;object-fit:contain}
 
@@ -316,6 +319,9 @@ button{font-family:inherit;border:none;background:none;cursor:pointer;color:inhe
 .music-toggle:hover{transform:translateY(-2px)}
 .music-toggle__icon{font-size:.95rem;font-style:italic;font-family:var(--font-title)}
 .music-toggle[aria-pressed="false"]{opacity:.65}
+.floating-rsvp{position:fixed;left:1.4rem;bottom:1.4rem;z-index:150;display:inline-flex;align-items:center;background:var(--card);color:var(--ink);border:1px solid var(--line-strong);padding:.75rem 1.05rem;font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;box-shadow:0 10px 24px -12px rgba(71,35,17,.55);opacity:0;transform:translateY(10px);pointer-events:none;transition:opacity .35s var(--ease),transform .35s var(--ease),background .25s var(--ease)}
+.floating-rsvp:hover{background:var(--bg-alt);border-color:var(--accent)}
+body.site-entered .floating-rsvp{opacity:1;transform:translateY(0);pointer-events:auto}
 @media (max-width:480px){
   .music-toggle__label{display:none}
   .music-toggle{padding:.75rem;width:44px;height:44px;justify-content:center}
@@ -352,6 +358,9 @@ button{font-family:inherit;border:none;background:none;cursor:pointer;color:inhe
   .countdown__grid{gap:.9rem 1.4rem}
   .countdown__unit{min-width:66px}
   .gifts__items{grid-template-columns:1fr}
+  .weather__head{display:block}
+  .weather__date{text-align:left;margin-top:.25rem}
+  .floating-rsvp{left:1rem;bottom:1rem;padding:.7rem .85rem;font-size:.62rem}
 }
 </style>
 </head>
@@ -364,6 +373,7 @@ button{font-family:inherit;border:none;background:none;cursor:pointer;color:inhe
     <p class="cover__date" id="coverDate">03 de Octubre de 2026</p>
     <p class="cover__place" id="coverPlace">Santiago — Chile</p>
     <p class="cover__welcome" id="coverWelcome">Bienvenidos a nuestra boda</p>
+    <p class="cover__instruction" id="coverInstruction">Revisa la invitación completa y confirma tu asistencia al final.</p>
     <button type="button" id="enterBtn" class="cover__enter">Ingresar</button>
   </div>
 </section>
@@ -385,12 +395,10 @@ button{font-family:inherit;border:none;background:none;cursor:pointer;color:inhe
       <!-- <a href="#playlist">Playlist</a> -->
     </nav>
 
-    <div class="lang-switcher" aria-label="Seleção de idioma" role="tablist">
-      <button type="button" class="lang-btn" data-lang="pt" aria-pressed="false">PT · Brasil</button>
-      <button type="button" class="lang-btn is-active" data-lang="es" aria-pressed="true">ES · Chile</button>
-    </div>
   </div>
 </header>
+
+<a href="#confirmacao" class="floating-rsvp" id="floatingRsvp">Confirmar asistencia</a>
 
 <main id="main">
 
@@ -503,7 +511,7 @@ button{font-family:inherit;border:none;background:none;cursor:pointer;color:inhe
       <div class="info__card">
         <h3 id="venueLabel">Endereço</h3>
         <p id="venueName">Alameda Pará, 60<br />Parque Guajará</p>
-        <a id="mapsLink" class="link info__mapsBtn" href="https://maps.app.goo.gl/tGKZR7Cri2KhtvGEA" target="_blank" rel="noopener">Google Maps</a>
+        <a id="mapsLink" class="link info__mapsBtn" href="https://www.google.com/maps/place/33%C2%B034%2732.6%22S+70%C2%B055%2718.8%22W/@-33.5757294,-70.9244575,17z/data=!3m1!4b1!4m4!3m3!8m2!3d-33.5757294!4d-70.9218826?hl=es&amp;entry=ttu&amp;g_ep=EgoyMDI2MDkxNi4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener">Google Maps</a>
       </div>
     </div>
     <div class="info__calendarActions reveal">
@@ -519,84 +527,85 @@ button{font-family:inherit;border:none;background:none;cursor:pointer;color:inhe
       <h2 class="section__title reveal" id="dresscodeTitle">Dress Code</h2>
     </div>
 
-    <div class="dresscode__palette reveal" aria-label="Paleta de cores sugerida">
+    <div class="dresscode__palette reveal" aria-label="Paleta de colores sugerida">
       <div class="swatch">
-        <span class="swatch__circle" style="background:#9D9E80"></span>
-        <span class="swatch__name">Verde Sálvia</span>
+        <span class="swatch__circle" style="background:#91A8C4"></span>
+        <span class="swatch__name">Azul claro</span>
       </div>
       <div class="swatch">
-        <span class="swatch__circle" style="background:#A6A17F"></span>
-        <span class="swatch__name">Verde Oliva Claro</span>
+        <span class="swatch__circle" style="background:#2D4662"></span>
+        <span class="swatch__name">Azul oscuro</span>
       </div>
       <div class="swatch">
-        <span class="swatch__circle" style="background:#8997A4"></span>
-        <span class="swatch__name">Azul Sereno</span>
+        <span class="swatch__circle" style="background:#5D5D38"></span>
+        <span class="swatch__name">Verde oliva</span>
       </div>
       <div class="swatch">
-        <span class="swatch__circle" style="background:#899098"></span>
-        <span class="swatch__name">Azul Acinzentado</span>
+        <span class="swatch__circle" style="background:#374A36"></span>
+        <span class="swatch__name">Verde oscuro</span>
       </div>
       <div class="swatch">
-        <span class="swatch__circle" style="background:#BCA8B1"></span>
-        <span class="swatch__name">Lilás Suave</span>
+        <span class="swatch__circle" style="background:#B47A21"></span>
+        <span class="swatch__name">Amarillo quemado</span>
       </div>
       <div class="swatch">
-        <span class="swatch__circle" style="background:#D2A399"></span>
-        <span class="swatch__name">Rosa Queimado</span>
+        <span class="swatch__circle" style="background:#A99585"></span>
+        <span class="swatch__name">Marrón claro</span>
       </div>
       <div class="swatch">
-        <span class="swatch__circle" style="background:#CA9279"></span>
-        <span class="swatch__name">Terracota Claro</span>
+        <span class="swatch__circle" style="background:#B8B9BE"></span>
+        <span class="swatch__name">Cinza claro</span>
       </div>
       <div class="swatch">
-        <span class="swatch__circle" style="background:#E4C58F"></span>
-        <span class="swatch__name">Amarelo Manteiga</span>
+        <span class="swatch__circle" style="background:#4C4E4F"></span>
+        <span class="swatch__name">Grafito</span>
       </div>
       <div class="swatch">
-        <span class="swatch__circle" style="background:#D6A968"></span>
-        <span class="swatch__name">Mostarda Suave</span>
+        <span class="swatch__circle" style="background:#1E1F20"></span>
+        <span class="swatch__name">Preto</span>
       </div>
       <div class="swatch">
-        <span class="swatch__circle" style="background:#7F5147"></span>
-        <span class="swatch__name">Vinho Claro</span>
-      </div>
-      <div class="swatch">
-        <span class="swatch__circle" style="background:#BFB8AE"></span>
-        <span class="swatch__name">Cinza Claro</span>
-      </div>
-      <div class="swatch">
-        <span class="swatch__circle" style="background:#615E59"></span>
-        <span class="swatch__name">Grafite Suave</span>
+        <span class="swatch__circle" style="background:#DCA4A8"></span>
+        <span class="swatch__name">Rosa claro</span>
       </div>
     </div>
 
     <div class="dresscode__cards reveal">
       <div class="dresscode__card">
         <h3 id="dressCardOne">Casual Chic</h3>
-        <p id="dressTextOne">Não é necessário traje social. Aposte em um look leve, elegante e confortável para celebrarmos juntos esse dia tão especial.</p>
+        <p id="dressTextOne">No es necesario usar traje de gala. Este es un día de campo en una parcela con sectores de tierra y pasto: elige ropa ligera, cómoda y calzado adecuado para caminar al aire libre.</p>
       </div>
       <div class="dresscode__card">
         <h3 id="dressCardTwo">Casual Elegante</h3>
-        <p id="dressTextTwo">Queremos que todos estejam confortáveis e bem vestidos para celebrar conosco. Opte por roupas leves, em tons suaves ou naturais, ideais para uma tarde especial ao ar livre.</p>
+        <p id="dressTextTwo">La celebración será especial, pero no es necesario usar terno. Vístete de manera casual y elegante, considerando el clima y el terreno irregular de la parcela.</p>
       </div>
     </div>
 
+    <div class="weather reveal" id="weatherPanel">
+      <div class="weather__head">
+        <h3 class="weather__title" id="weatherTitle">Clima para nuestra celebración</h3>
+        <span class="weather__date" id="weatherDate">03 de octubre de 2026 · Santiago</span>
+      </div>
+      <p class="weather__intro" id="weatherIntro">La celebración será un día de campo en una parcela: aproximadamente la mitad del terreno es tierra y pasto. Revisa aquí el pronóstico para tener una idea de cómo prepararte.</p>
+      <p class="weather__status" id="weatherStatus">El pronóstico se actualizará diariamente en AccuWeather.</p>
+      <a class="link weather__link" id="weatherLink" href="https://www.accuweather.com/es/cl/santiago/60449/daily-weather-forecast/60449?day=12" target="_blank" rel="noopener">Ver pronóstico actualizado en AccuWeather</a>
+      <p class="weather__updated" id="weatherUpdated">La fecha del pronóstico se ajusta automáticamente según los días que falten para la celebración.</p>
+    </div>
+
     <div class="looks reveal">
-      <p class="looks__title" id="looksTitle">Opções de looks</p>
+      <p class="looks__title" id="looksTitle">Opciones de looks</p>
+      <p class="looks__note" id="looksNote"><strong id="looksNoteLead">Solo inspiración</strong><span id="looksNoteText">Estas imágenes son solo ideas para inspirarte. No representan una vestimenta oficial ni obligatoria.</span></p>
       <div class="looks__group">
         <span class="looks__label" id="looksWomen">Elas</span>
         <div class="looks__grid">
           <figure class="look">
-            <img src="assets/look-elas-vestido.png" alt="Vestido longo verde sálvia">
+            <img src="assets/look-elas-1.png" alt="Suéter verde oliva, jeans azul claro y zapatillas blancas">
           </figure>
           <figure class="look">
-            <img src="assets/look-elas-conjunto-rosa.png" alt="Top e saia longa rosa queimado">
+            <img src="assets/look-elas-2.png" alt="Vestido largo azul claro con sandalias doradas">
           </figure>
           <figure class="look">
-            <img src="assets/look-elas-macacao.png" alt="Macacão azul acinzentado">
-          </figure>
-          <figure class="look">
-            <img src="assets/look-elas-conjunto-lilas.png" alt="Cami lilás e calça pantalona vinho">
+            <img src="assets/look-elas-3.png" alt="Enterito largo color mostaza con lazo en la cintura y sandalias marrones">
           </figure>
         </div>
       </div>
@@ -604,22 +613,19 @@ button{font-family:inherit;border:none;background:none;cursor:pointer;color:inhe
         <span class="looks__label" id="looksMen">Eles</span>
         <div class="looks__grid">
           <figure class="look">
-            <img src="assets/look-eles-verde.png" alt="Camisa verde sálvia e bermuda preta">
+            <img src="assets/look-eles-1.png" alt="Polera azul oscuro, bermudas negras y zapatillas blancas">
           </figure>
           <figure class="look">
-            <img src="assets/look-eles-azul.png" alt="Camisa azul acinzentado e bermuda jeans">
+            <img src="assets/look-eles-2.png" alt="Suéter verde oscuro, jeans azul oscuro y zapatillas blancas">
           </figure>
           <figure class="look">
-            <img src="assets/look-eles-terracota.png" alt="Camisa terracota e bermuda marinho">
-          </figure>
-          <figure class="look">
-            <img src="assets/look-eles-grafite.png" alt="Polo grafite e calça">
+            <img src="assets/look-eles-3.png" alt="Chaqueta acolchada negra, polerón gris, jeans negros y zapatillas blancas">
           </figure>
         </div>
       </div>
     </div>
 
-    <p class="dresscode__note reveal" id="dressNote">Evite usar: branco, off white, bege, areia e tons claros.<br />Essas cores são exclusivas para os noivos.</p>
+    <p class="dresscode__note reveal" id="dressNote"><strong>Importante: no uses blanco</strong>Evita también el off white, beige, arena y otros tonos muy claros. Estos colores están reservados para los novios.</p>
   </section>
 
 
@@ -871,6 +877,7 @@ if(musicToggle) musicToggle.addEventListener('click', function(){
 function enterSite(){
   cover.classList.add('is-hidden');
   body.classList.remove('no-scroll');
+  body.classList.add('site-entered');
   if(bgMusic) bgMusic.play().catch(function(){});
 }
 if(enterBtn) enterBtn.addEventListener('click', enterSite);
@@ -879,7 +886,6 @@ cover.addEventListener('wheel', function(e){ if(e.deltaY>12) enterSite(); }, {pa
 var header=document.getElementById('siteHeader');
 var menuToggle=document.getElementById('menuToggle');
 var primaryNav=document.getElementById('primaryNav');
-var langButtons=document.querySelectorAll('.lang-btn');
 
 var translations={
   pt:{
@@ -890,6 +896,7 @@ var translations={
     coverDate:'05 Setembro 2026',
     coverPlace:'Belém — Pará',
     coverWelcome:'Bem-vindos ao nosso noivado',
+    coverInstruction:'Confira o convite completo e confirme sua presença ao final.',
     detailsEyebrow:'Detalhes',
     infoTitle:'Informações',
     infoIntro:'Queremos um encontro leve, cheio de amor, boas conversas e pessoas especiais. Para que tudo transcorra na melhor ordem, pedimos a maior pontualidade possível.',
@@ -902,7 +909,7 @@ var translations={
     venueLabel:'Endereço',
     venueName:'Ponto de referência:<br />Próximo a La Dehesa, Santiago',
     mapsLabel:'Google Maps',
-    mapsUrl:'https://maps.google.com/?q=-33.4167,-70.6067',
+    mapsUrl:'https://www.google.com/maps/place/33%C2%B034%2732.6%22S+70%C2%B055%2718.8%22W/@-33.5757294,-70.9244575,17z/data=!3m1!4b1!4m4!3m3!8m2!3d-33.5757294!4d-70.9218826?hl=es&entry=ttu&g_ep=EgoyMDI2MDkxNi4wIKXMDSoASAFQAw%3D%3D',
     historyEyebrow:'Nossa jornada',
     historyTitle:'Nossa História',
     timeline:[
@@ -919,13 +926,15 @@ var translations={
     dresscodeEyebrow:'Trajes dos Convidados',
     dresscodeTitle:'Dress Code',
     dressCardOne:'Casual Chic',
-    dressTextOne:'Não é necessário traje social. Aposte em um look leve, elegante e confortável para celebrarmos juntos esse dia tão especial.',
+    dressTextOne:'Não é necessário usar traje de gala. Este é um dia de campo em uma parcela com setores de terra e pasto: escolha roupas leves, confortáveis e calçados adequados para caminhar ao ar livre.',
     dressCardTwo:'Casual Elegante',
-    dressTextTwo:'Queremos que todos estejam confortáveis e bem vestidos para celebrar conosco. Opte por roupas leves, em tons suaves ou naturais, ideais para uma tarde especial ao ar livre.',
+    dressTextTwo:'A celebração será especial, mas não é necessário usar terno. Vista-se de forma casual e elegante, pensando no clima e no terreno irregular da parcela.',
     looksTitle:'Opções de looks',
+    looksNoteLead:'Apenas inspiração',
+    looksNoteText:'Estas imagens são apenas ideias para inspirar. Não representam uma vestimenta oficial ou obrigatória.',
     looksWomen:'Elas',
     looksMen:'Eles',
-    dressNote:'Evite usar: branco, off white, bege, areia e tons claros.<br />Essas cores são exclusivas para os noivos.',
+    dressNote:'<strong>Importante: não use branco</strong>Evite também off white, bege, areia e outros tons muito claros. Essas cores são reservadas aos noivos.',
     galleryEyebrow:'Momentos',
     galleryTitle:'Galeria',
     giftsTitle:'Lista de presentes',
@@ -993,6 +1002,7 @@ var translations={
     coverDate:'03 de Octubre de 2026',
     coverPlace:'Santiago — Chile',
     coverWelcome:'Bienvenidos a nuestra boda',
+    coverInstruction:'Revisa la invitación completa y confirma tu asistencia al final.',
     detailsEyebrow:'Detalles',
     infoTitle:'Información',
     infoIntro:'Queremos una reunión tranquila, llena de amor, buenas conversaciones y personas especiales. Para que todo transcurra en el mejor orden, pedimos la mayor puntualidad posible.',
@@ -1005,7 +1015,7 @@ var translations={
     venueLabel:'Dirección',
     venueName:'Parcelación Alto El Rosario, Padre Hurtado',
     mapsLabel:'Google Maps',
-    mapsUrl:'https://maps.google.com/?q=-33.4167,-70.6067',
+    mapsUrl:'https://www.google.com/maps/place/33%C2%B034%2732.6%22S+70%C2%B055%2718.8%22W/@-33.5757294,-70.9244575,17z/data=!3m1!4b1!4m4!3m3!8m2!3d-33.5757294!4d-70.9218826?hl=es&entry=ttu&g_ep=EgoyMDI2MDkxNi4wIKXMDSoASAFQAw%3D%3D',
     historyEyebrow:'Nuestro recorrido',
     historyTitle:'Nuestra Historia',
     timeline:[
@@ -1022,13 +1032,21 @@ var translations={
     dresscodeEyebrow:'Trajes de los invitados',
     dresscodeTitle:'Dress Code',
     dressCardOne:'Casual Chic',
-    dressTextOne:'No es necesario un traje social. Apuesta por un look ligero, elegante y cómodo para celebrar juntos este día tan especial.',
+    dressTextOne:'No es necesario usar traje de gala. Este es un día de campo en una parcela con sectores de tierra y pasto: elige ropa ligera, cómoda y calzado adecuado para caminar al aire libre.',
     dressCardTwo:'Casual Elegante',
-    dressTextTwo:'Queremos que todos estén cómodos y bien vestidos para celebrar con nosotros. Opta por ropa ligera, en tonos suaves o naturales, ideales para una tarde especial al aire libre.',
+    dressTextTwo:'La celebración será especial, pero no es necesario usar terno. Vístete de manera casual y elegante, considerando el clima y el terreno irregular de la parcela.',
     looksTitle:'Opciones de looks',
+    looksNoteLead:'Solo inspiración',
+    looksNoteText:'Estas imágenes son solo ideas para inspirarte. No representan una vestimenta oficial ni obligatoria.',
     looksWomen:'Ellas',
     looksMen:'Ellos',
-    dressNote:'Evita usar: blanco, off white, beige, arena y tonos claros.<br />Estos colores son exclusivos para los novios.',
+    dressNote:'<strong>Importante: no uses blanco</strong>Evita también el off white, beige, arena y otros tonos muy claros. Estos colores están reservados para los novios.',
+    weatherTitle:'Clima para nuestra celebración',
+    weatherDate:'03 de octubre de 2026 · Santiago',
+    weatherIntro:'La celebración será un día de campo en una parcela: aproximadamente la mitad del terreno es tierra y pasto. Revisa aquí el pronóstico para tener una idea de cómo prepararte.',
+    weatherStatus:'El pronóstico se actualizará diariamente en AccuWeather.',
+    weatherLink:'Ver pronóstico actualizado en AccuWeather',
+    weatherUpdated:'La fecha del pronóstico se ajusta automáticamente según los días que falten para la celebración.',
     galleryEyebrow:'Momentos',
     galleryTitle:'Galería',
     giftsTitle:'Lista de regalos',
@@ -1055,8 +1073,8 @@ var translations={
     transferCopied:'Copiado',
     faqEyebrow:'Dudas',
     faqTitle:'Preguntas Frecuentes',
-    faqQuestions:['¿Puedo llevar acompañante?','¿Hay estacionamiento?','¿Hasta cuándo confirmar?','¿Habrá niños?','¿Qué ropa debo usar?'],
-    faqAnswers:['Para mantener la correcta organización del evento, las invitaciones son personales y están destinadas a nuestros seres queridos. Si deseas invitar a alguien más, por favor avísanos con la mayor anticipación posible para poder considerarlo y preparar todo adecuadamente.','Sí, hay estacionamiento. Como el evento se realiza dentro de un condominio, necesitamos que nos confirmes la patente de cada vehículo para autorizar su ingreso.','Idealmente, confirma tu asistencia lo antes posible, ya que falta poco para la fecha. Así podremos preparar cada detalle con todo cariño.','¡Sí! Los niños de nuestra familia y de nuestros invitados son muy bienvenidos y formarán parte de este momento tan especial.','Te sugerimos tomar como inspiración las opciones del dress code y mantener ese estilo: ropa ligera, cómoda y elegante. Para mantener la armonía de la celebración, pedimos evitar prendas en tonos blanco, off-white, beige, arena y demás colores muy claros, reservados para los novios.'],
+    faqQuestions:['¿Puedo llevar a mi pareja?','¿Hay estacionamiento?','¿Hasta cuándo confirmar?','¿Habrá niños?','¿Qué ropa debo usar?'],
+    faqAnswers:['¡Sí, por supuesto! Tu pareja, esposa, esposo o polola es bienvenida. Aunque no hayamos compartido con todas las parejas de nuestros invitados, sabemos quiénes son y nos encantará recibirlas. Por eso, en el formulario de confirmación puedes agregar a las personas que asistirán contigo, incluyendo a tu pareja. La invitación contempla a las parejas conocidas o que ya forman parte de sus vidas; por favor, no agregues a una persona nueva o recién conocida como acompañante para esta ocasión. Si tienes alguna duda, escríbenos y lo conversamos con cariño.','Sí, hay estacionamiento. Como el evento se realiza dentro de un condominio, necesitamos que nos confirmes la patente de cada vehículo para autorizar su ingreso.','Idealmente, confirma tu asistencia lo antes posible, ya que falta poco para la fecha. Así podremos preparar cada detalle con todo cariño.','¡Sí! Los niños de nuestra familia y de nuestros invitados son muy bienvenidos y formarán parte de este momento tan especial.','Te sugerimos tomar como inspiración las opciones del dress code y mantener ese estilo: ropa ligera, cómoda y elegante. Para mantener la armonía de la celebración, pedimos evitar prendas en tonos blanco, off-white, beige, arena y demás colores muy claros, reservados para los novios.'],
     rsvpTitle:'Confirma tu asistencia',
     rsvpGuestLabel:'Nombre y apellido',
     rsvpGuestPlaceholder:'Tu nombre completo',
@@ -1158,6 +1176,7 @@ function applyLanguage(lang){
   document.getElementById('coverDate').textContent=current.coverDate;
   document.getElementById('coverPlace').textContent=current.coverPlace;
   document.getElementById('coverWelcome').textContent=current.coverWelcome;
+  document.getElementById('coverInstruction').textContent=current.coverInstruction;
 
   document.getElementById('historyEyebrow').textContent=current.historyEyebrow;
   document.getElementById('historyTitle').textContent=current.historyTitle;
@@ -1184,8 +1203,8 @@ function applyLanguage(lang){
   document.getElementById('mapsLink').href=current.mapsUrl;
 
   var eventTitle = 'Boda de Vicente y Rayssa';
-  var eventDetails = 'Te esperamos para celebrar nuestro día especial. La boda será el 03 de octubre de 2026 a las 13:00 hrs en Santiago, Chile.';
-  var eventLocation = 'Parcelación Alto El Rosario, Padre Hurtado, Santiago — Chile (' + current.mapsUrl + ')';
+  var eventLocation = 'Parcelación Alto El Rosario, Padre Hurtado, Santiago — Chile. Coordenadas: 33°34\'32.6"S 70°55\'18.8"W. Google Maps: ' + current.mapsUrl;
+  var eventDetails = 'Te esperamos para celebrar nuestro día especial. La boda será el 03 de octubre de 2026 a las 13:00 hrs en Santiago, Chile. Dirección: ' + eventLocation;
 
   document.getElementById('googleCalendarLink').textContent=current.calendarGoogleLabel || 'Agregar a Google Calendar';
   document.getElementById('googleCalendarLink').href = buildGoogleCalendarUrl(eventTitle, eventDetails, eventLocation);
@@ -1206,9 +1225,17 @@ function applyLanguage(lang){
   document.getElementById('dressCardTwo').textContent=current.dressCardTwo;
   document.getElementById('dressTextTwo').textContent=current.dressTextTwo;
   document.getElementById('looksTitle').textContent=current.looksTitle;
+  document.getElementById('looksNoteLead').textContent=current.looksNoteLead;
+  document.getElementById('looksNoteText').textContent=current.looksNoteText;
   document.getElementById('looksWomen').textContent=current.looksWomen;
   document.getElementById('looksMen').textContent=current.looksMen;
   document.getElementById('dressNote').innerHTML=current.dressNote;
+  document.getElementById('weatherTitle').textContent=current.weatherTitle;
+  document.getElementById('weatherDate').textContent=current.weatherDate;
+  document.getElementById('weatherIntro').textContent=current.weatherIntro;
+  document.getElementById('weatherStatus').textContent=current.weatherStatus;
+  document.getElementById('weatherLink').textContent=current.weatherLink;
+  document.getElementById('weatherUpdated').textContent=current.weatherUpdated;
 
   document.getElementById('galleryEyebrow').textContent=current.galleryEyebrow;
   document.getElementById('galleryTitle').textContent=current.galleryTitle;
@@ -1288,21 +1315,18 @@ function applyLanguage(lang){
 
   setEventDateForLanguage(lang);
   document.documentElement.lang=(lang==='es')?'es-CL':'pt-BR';
-  langButtons.forEach(function(button){
-    var active=button.dataset.lang===lang;
-    button.classList.toggle('is-active', active);
-    button.setAttribute('aria-pressed', String(active));
-  });
 }
 
-if(langButtons.length){
-  langButtons.forEach(function(button){
-    button.addEventListener('click', function(){
-      applyLanguage(button.dataset.lang || 'pt');
-    });
-  });
-}
 applyLanguage('es');
+
+function updateAccuWeatherLink(){
+  var eventDate=new Date('2026-10-03T12:00:00-03:00');
+  var today=new Date();
+  var daysUntil=Math.ceil((eventDate.getTime()-today.getTime())/86400000)+1;
+  var day=Math.max(1,daysUntil);
+  document.getElementById('weatherLink').href='https://www.accuweather.com/es/cl/santiago/60449/daily-weather-forecast/60449?day='+day;
+}
+updateAccuWeatherLink();
 
 document.getElementById('transferCopyAll').addEventListener('click', function(){
   var button=this;
@@ -1359,14 +1383,14 @@ if('IntersectionObserver' in window){
   revealEls.forEach(function(el){ el.classList.add('is-visible'); });
 }
 
-var EVENT_DATE = new Date('2026-10-03T17:00:00-03:00').getTime();
+var EVENT_DATE = new Date('2026-10-03T13:00:00-03:00').getTime();
 var elDays=document.getElementById('cd-days');
 var elHours=document.getElementById('cd-hours');
 var elMinutes=document.getElementById('cd-minutes');
 var elSeconds=document.getElementById('cd-seconds');
 function pad(n){ return String(n).padStart(2,'0'); }
 function setEventDateForLanguage(lang){
-  if(lang==='es') EVENT_DATE = new Date('2026-10-03T17:00:00-03:00').getTime();
+  if(lang==='es') EVENT_DATE = new Date('2026-10-03T13:00:00-03:00').getTime();
   else EVENT_DATE = new Date('2026-09-05T17:00:00-03:00').getTime();
   if(elDays) updateCountdown();
 }
@@ -1443,7 +1467,7 @@ document.addEventListener('keydown', function(e){
 
 /* ---------- RSVP ---------- */
 var RSVP_FORMSPREE_ENDPOINT='https://formspree.io/f/meebnqdv';
-var RSVP_WHATSAPP_NUMBER='5591988350198';
+var RSVP_WHATSAPP_NUMBER='56934615972';
 
 var rsvpForm=document.getElementById('rsvpForm');
 var rsvpGuests=document.getElementById('rsvpGuests');
